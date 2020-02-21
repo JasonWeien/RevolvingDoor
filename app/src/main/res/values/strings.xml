@@ -148,4 +148,8 @@
     <string name="msgMaintenancRestart">系统将重新启动，请确认？</string>
     <string name="msgMaintenancReset">所有系统参数将恢复出厂设置，请确认？</string>
 
+
+<!--    自动门报警代码-->
+<!--    <string name="infoErrorCode"-->
+
 </resources>

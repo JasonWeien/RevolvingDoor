@@ -150,6 +150,8 @@ public class MainActivity extends Activity {
                     break;
                 case 3://参数查询更新
                     PageParameter.instance().updateLayout();
+                    PageMore.instance().updateLayout();
+
                     break;
                 case 99:
 //                    String text = bd.getString("msg");

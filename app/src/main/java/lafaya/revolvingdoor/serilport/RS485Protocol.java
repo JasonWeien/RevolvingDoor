@@ -12,6 +12,7 @@ import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.view.MainActivity;
 import lafaya.revolvingdoor.view.PageHome;
 import lafaya.revolvingdoor.view.PageMode;
+import lafaya.revolvingdoor.view.PageMore;
 import lafaya.revolvingdoor.view.PageParameter;
 
 /**
@@ -316,6 +317,7 @@ public class RS485Protocol {
 
         //接收到数据后，需要更新数据，需要在handle线程上执行
         PageParameter.instance().updateMsg();
+        PageMore.instance().updateMsg();
 
     }
 

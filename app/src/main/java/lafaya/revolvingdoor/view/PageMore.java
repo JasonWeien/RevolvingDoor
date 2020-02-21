@@ -2,7 +2,9 @@ package lafaya.revolvingdoor.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,14 +18,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import lafaya.revolvingdoor.R;
-import lafaya.revolvingdoor.model.InformationRevolving;
-import lafaya.revolvingdoor.model.InformationSliding;
-import lafaya.revolvingdoor.model.InformationWingL;
-import lafaya.revolvingdoor.model.InformationWingR;
 import lafaya.revolvingdoor.model.ParameterUpdate;
 import lafaya.revolvingdoor.utils.AutoCountListView;
 import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.utils.SystemUIUtils;
+
+import static lafaya.revolvingdoor.utils.DataBase.DoorType.NON;
 
 
 
@@ -52,29 +52,20 @@ public class PageMore {
     private Handler handler;
 
     private RelativeLayout activity_more;
-
-
-    private InformationRevolving infoRevolving = new InformationRevolving();
-    private InformationSliding infoSliding = new InformationSliding();
-    private InformationWingL infoWingL = new InformationWingL();
-    private InformationWingR infoWingR = new InformationWingR();
-
-
     private Button button_infoRevolving, button_infoSliding,button_infoWingL,button_infoWingR;
-
-//    private LinearLayout layout_info_RevolvingDoor;
-
     private LinearLayout layout_info_AutoDoor;
+    private AutoCountListView grid_infoAutoDoor;
 
 
-    private DataBase.DoorType layoutVisible = DataBase.DoorType.NON;
+    // 错误代码、复位代码、严重异常代码
+    private Button button_info_TenResetCode, button_info_TenErrorCode, button_info_BadErrorCode;
+    private AutoCountListView grid_info_TenResetCode, grid_info_TenErrorCode, grid_info_BadErrorCode;
 
     //========================
-    private AutoCountListView grid_infoAutoDoor;
     //查询菜单位置
     private int posChecked = 0;
-    public boolean checkWaiting = false;
-
+    private boolean checkWaiting = false;
+    private DataBase.DoorType layoutVisible = NON;
 
 
     //===========================
@@ -98,32 +89,30 @@ public class PageMore {
         //
         activity_more = activity.findViewById(R.id.layout_activity_more);
 
+        // 初始化界面
         // 旋转门主体
         // 平滑门
         // 门翼1
         // 门翼2
         button_infoRevolving = activity.findViewById(R.id.button_infoRevolving);
-//        layout_info_RevolvingDoor = activity.findViewById(R.id.layout_info_RevolvingDoor);
-//        infoRevolving.initializeInfoRevolving(activity);
-
         button_infoSliding = activity.findViewById(R.id.button_infoSliding);
         button_infoWingL = activity.findViewById(R.id.button_infoWingL);
         button_infoWingR = activity.findViewById(R.id.button_infoWingR);
 
         layout_info_AutoDoor = activity.findViewById(R.id.layout_info_AutoDoor);
 
-//
-//
-//        layout_info_SlidingDoor = activity.findViewById(R.id.layout_info_SlidingDoor);
-//        infoSliding.initializeInfoSliding(activity);
-//
-//        layout_info_WingL = activity.findViewById(R.id.layout_info_WingL);
-//        infoWingL.initializeInfoWingL(activity);
-//
-//        layout_info_WingR = activity.findViewById(R.id.layout_info_WingR);
-//        infoWingR.initializeInfoWingR(activity);
-
         grid_infoAutoDoor = activity.findViewById(R.id.grid_infoAutoDoor);
+
+
+        //==============================================================================
+        button_info_TenErrorCode = activity.findViewById(R.id.button_info_TenErrorCode);
+        button_info_TenResetCode = activity.findViewById(R.id.button_info_TenResetCode);
+        button_info_BadErrorCode = activity.findViewById(R.id.button_info_BadErrorCode);
+        grid_info_TenResetCode = activity.findViewById(R.id.grid_info_TenResetCode);
+        grid_info_TenErrorCode = activity.findViewById(R.id.grid_info_TenErrorCode);
+        grid_info_BadErrorCode = activity.findViewById(R.id.grid_info_BadErrorCode);
+        //============================================================================
+
 
         // 初始化各信息参数
         DataBase.instance().mapInfoRevolving = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoRevolving,null,0);
@@ -175,8 +164,23 @@ public class PageMore {
         grid_infoAutoDoor.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-//                posInfoSelected = pos;
-//                ParameterUpdate.instance().readInfoOther(pos, MainActivity.sContext.getString(R.string.addAutoDoor));
+                switch (layoutVisible){
+                    case REVOLVING:
+//                        ParameterUpdate.instance().readInfoOther(pos, MainActivity.sContext.getString(R.string.addRevolvingDoor));
+                        break;
+                    case SLIDING:
+                        ParameterUpdate.instance().readInfoOther(pos, MainActivity.sContext.getString(R.string.addAutoDoor));
+                        break;
+                    case WINGL:
+                        ParameterUpdate.instance().readInfoOther(pos, MainActivity.sContext.getString(R.string.addSwingL));
+                        break;
+                    case WINGR:
+                        ParameterUpdate.instance().readInfoOther(pos, MainActivity.sContext.getString(R.string.addSwingR));
+                        break;
+                    default:
+                        break;
+                }
+
 
             }
         });
@@ -186,11 +190,11 @@ public class PageMore {
     /* 旋转门参数*/
     private void infoRevolvingPressed(){
         if(layoutVisible == DataBase.DoorType.REVOLVING){
-            layoutVisible = DataBase.DoorType.NON;
-            infoRevolving.checkWaiting = false;
+            layoutVisible = NON;
+            checkWaiting = false;
         }else{
             layoutVisible = DataBase.DoorType.REVOLVING;
-            infoRevolving.checkWaiting = true;
+            checkWaiting = true;
         }
 
         updateLayout();
@@ -200,11 +204,11 @@ public class PageMore {
     /* 平滑自动门参数*/
     private void infoSlidingPressed(){
         if(layoutVisible == DataBase.DoorType.SLIDING){
-            layoutVisible = DataBase.DoorType.NON;
-            infoSliding.checkWaiting = false;
+            layoutVisible = NON;
+            checkWaiting = false;
         }else{
             layoutVisible = DataBase.DoorType.SLIDING;
-            infoSliding.checkWaiting = true;
+            checkWaiting = true;
         }
 
         updateLayout();
@@ -213,11 +217,11 @@ public class PageMore {
     /* 门翼1参数*/
     private void infoWingLPressed(){
         if(layoutVisible == DataBase.DoorType.WINGL){
-            layoutVisible = DataBase.DoorType.NON;
-            infoWingL.checkWaiting = false;
+            layoutVisible = NON;
+            checkWaiting = false;
         }else{
             layoutVisible = DataBase.DoorType.WINGL;
-            infoWingL.checkWaiting = true;
+            checkWaiting = true;
         }
 
         updateLayout();
@@ -226,23 +230,15 @@ public class PageMore {
     /* 门翼2参数*/
     private void infoWingRPressed(){
         if(layoutVisible == DataBase.DoorType.WINGR){
-            layoutVisible = DataBase.DoorType.NON;
-            infoWingR.checkWaiting = false;
+            layoutVisible = NON;
+            checkWaiting = false;
         }else{
             layoutVisible = DataBase.DoorType.WINGR;
-            infoWingR.checkWaiting = true;
+            checkWaiting = true;
         }
 
         updateLayout();
     }
-//
-//    // 显示更改
-//    private void layoutChange(int[] state_tmp){
-////        layout_info_RevolvingDoor.setVisibility(state_tmp[0]);
-//        layout_info_AutoDoor.setVisibility()
-//    }
-
-
 
     //界面显示更新
     public void updateLayout(){
@@ -273,7 +269,7 @@ public class PageMore {
                 //查询参数
                 //查询参数，以上一次查询位置为起点
                 if(checkWaiting){
-                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addAutoDoor),12);
+                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addAutoDoor),9);
                     startTimer();
                 }
                 break;
@@ -282,7 +278,7 @@ public class PageMore {
                 //查询参数
                 //查询参数，以上一次查询位置为起点
                 if(checkWaiting){
-                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addSwingL),12);
+                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addSwingL),9);
                     startTimer();
                 }
 
@@ -302,12 +298,11 @@ public class PageMore {
 
 
         //菜单展开或收起操作
-        if(layoutVisible == DataBase.DoorType.NON){
+        if(layoutVisible == NON){
             layout_info_AutoDoor.setVisibility(View.GONE);
         }else {
             layout_info_AutoDoor.setVisibility(View.VISIBLE);
         }
-//        layoutChange(state_tmp);
 
         //更改菜单键箭头显示方向,展开时向下，收起时向上
         SystemUIUtils.instance().buttonIconChange(mContext,button_infoRevolving,state_tmp[0]);
@@ -317,7 +312,7 @@ public class PageMore {
 
 
         // 当展开时，仅显示当前被按下的按键
-        if(layoutVisible == DataBase.DoorType.NON){
+        if(layoutVisible == NON){
             button_infoRevolving.setVisibility(View.VISIBLE);
             button_infoSliding.setVisibility(View.VISIBLE);
             button_infoWingL.setVisibility(View.VISIBLE);
@@ -338,7 +333,7 @@ public class PageMore {
     }
 
 
-    public void updateGrideInfoAutoDoor(List<HashMap<String, Object>> list){
+    private void updateGrideInfoAutoDoor(List<HashMap<String, Object>> list){
         //写入grid view
         SimpleAdapter saImageItems = new SimpleAdapter(activity,
                 list,
@@ -348,8 +343,48 @@ public class PageMore {
         grid_infoAutoDoor.setAdapter(saImageItems);
     }
 
+//=============================================================================
+//    private void updateGrideInfoTenErrorCode(){
+//        List<HashMap<String, Object>> list;
+//        for(int i = 0; i < 10; i++){
+//            list.add("00", "无报警代码");
+//        }
+////        listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg));
+//
+////        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),
+////                listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg))));
+//
+////        list = DataBase.instance().mapInfoSliding
+//        //写入grid view
+//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+//                list,
+//                R.layout.item_error_list,
+//                new String[] { "text", "value"},
+//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+//        grid_info_TenErrorCode.setAdapter(saImageItems);
+//    }
+//    private void updateGrideInfoTenResetCode(List<HashMap<String, Object>> list){
+//        //写入grid view
+//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+//                list,
+//                R.layout.item_error_list,
+//                new String[] { "text", "value"},
+//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+//        grid_info_TenResetCode.setAdapter(saImageItems);
+//    }
+//    private void updateGrideInfoBadErrorCode(List<HashMap<String, Object>> list){
+//        //写入grid view
+//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+//                list,
+//                R.layout.item_error_list,
+//                new String[] { "text", "value"},
+//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+//        grid_info_BadErrorCode.setAdapter(saImageItems);
+//    }
+//=====================================================================
+
     //查询操作，当展开菜单时，查询参数。
-    public boolean checkInfoAutoDoor(String address, int maxlength){
+    private boolean checkInfoAutoDoor(String address, int maxlength){
         // 按菜单从上到下查询参数
 
         ParameterUpdate.instance().readInfoOther(posChecked, address);
@@ -434,10 +469,19 @@ public class PageMore {
         if(flag){
             activity_more.setVisibility(View.VISIBLE);
         }else{
-            layoutVisible = DataBase.DoorType.NON;
+            layoutVisible = NON;
             activity_more.setVisibility(View.GONE);
             updateLayout();
         }
+    }
+
+    // handle 更新
+    public void updateMsg(){
+        Message msg = new Message();
+        msg.what = 3;
+        Bundle bundle = new Bundle();
+        msg.setData(bundle);
+        handler.sendMessage(msg);
     }
 
 

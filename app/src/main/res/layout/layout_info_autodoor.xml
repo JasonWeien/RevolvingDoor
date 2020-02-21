@@ -13,6 +13,9 @@
         android:verticalSpacing="2dp"
         android:background="@color/ic_launcher_background"
         />
+
+
+
     <!--    最近10次报警代码-->
     <Button
         android:layout_width="match_parent"
@@ -21,9 +24,18 @@
         android:paddingRight="20dp"
         android:background="@color/colorBackground"
         android:gravity="center_vertical"
+        android:id="@+id/button_info_TenErrorCode"
         android:text="最近10次报警代码"
         android:textSize="22dp"
         android:textColor="@color/colorString"/>
+        <lafaya.revolvingdoor.utils.AutoCountListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/grid_info_TenErrorCode"
+            android:scrollbars="none"
+            android:verticalSpacing="2dp"
+            android:background="@color/ic_launcher_background"
+            />
 
     <!--    最近10次系统复位原因-->
     <Button
@@ -32,10 +44,20 @@
         android:paddingLeft="10dp"
         android:paddingRight="20dp"
         android:background="@color/colorBackground"
+        android:id="@+id/button_info_TenResetCode"
         android:gravity="center_vertical"
         android:text="最近10次系统复位原因"
         android:textSize="22dp"
         android:textColor="@color/colorString"/>
+    <lafaya.revolvingdoor.utils.AutoCountListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/grid_info_TenResetCode"
+        android:scrollbars="none"
+        android:verticalSpacing="2dp"
+        android:background="@color/ic_launcher_background"
+        />
+
     <!--    严重错误信息-->
     <Button
         android:layout_width="match_parent"
@@ -43,10 +65,19 @@
         android:paddingLeft="10dp"
         android:paddingRight="20dp"
         android:background="@color/colorBackground"
+        android:id="@+id/button_info_BadErrorCode"
         android:gravity="center_vertical"
         android:text="严重错误信息"
         android:textSize="22dp"
         android:textColor="@color/colorString"/>
+    <lafaya.revolvingdoor.utils.AutoCountListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/grid_info_BadErrorCode"
+        android:scrollbars="none"
+        android:verticalSpacing="2dp"
+        android:background="@color/ic_launcher_background"
+        />
 
 
 </LinearLayout>

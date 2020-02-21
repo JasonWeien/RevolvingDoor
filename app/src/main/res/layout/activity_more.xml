@@ -20,8 +20,6 @@
             android:text="旋转门信息"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
-<!--        <include layout="@layout/layout_info_revolvingdoor" />-->
-<!--        ********************************************  -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -33,8 +31,6 @@
             android:text="平滑门信息"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
-<!--        <include layout="@layout/layout_info_slidingdoor" />-->
-<!--       ******************************************** -->
 
         <Button
             android:layout_width="match_parent"
@@ -47,8 +43,7 @@
             android:text="门翼1信息"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
-<!--        <include layout="@layout/layout_info_wingl" />-->
-<!--        ******************************************** -->
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -63,60 +58,6 @@
         <include layout="@layout/layout_info_autodoor" />
 
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="vertical"-->
-<!--            android:id="@+id/layout_info_WingR">-->
-
-<!--            <lafaya.revolvingdoor.utils.AutoCountListView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:id="@+id/grid_infoWingR"-->
-<!--                android:scrollbars="none"-->
-<!--                android:verticalSpacing="2dp"-->
-<!--                android:background="@color/ic_launcher_background"-->
-<!--                />-->
-<!--            &lt;!&ndash;    最近10次报警代码&ndash;&gt;-->
-<!--            <Button-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="80dp"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="20dp"-->
-<!--                android:background="@color/colorBackground"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:text="最近10次报警代码"-->
-<!--                android:textSize="22dp"-->
-<!--                android:textColor="@color/colorString"/>-->
-
-<!--            &lt;!&ndash;    最近10次系统复位原因&ndash;&gt;-->
-<!--            <Button-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="80dp"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="20dp"-->
-<!--                android:background="@color/colorBackground"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:text="最近10次系统复位原因"-->
-<!--                android:textSize="22dp"-->
-<!--                android:textColor="@color/colorString"/>-->
-<!--            &lt;!&ndash;    严重错误信息&ndash;&gt;-->
-<!--            <Button-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="80dp"-->
-<!--                android:paddingLeft="10dp"-->
-<!--                android:paddingRight="20dp"-->
-<!--                android:background="@color/colorBackground"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:text="严重错误信息"-->
-<!--                android:textSize="22dp"-->
-<!--                android:textColor="@color/colorString"/>-->
-
-
-<!--        </LinearLayout>-->
-
-
-<!--        <include layout="@layout/layout_info_revolvingdoor" />-->
 <!--        <Button-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="80dp"-->
