@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 串口位置及波特率定义：固定值，RS485， 9600bps-->
+    <string name="devicePath">/dev/ttyS3</string>
+    <string name="baudRate">9600</string>
+
+
+    <!-- 地址分配 -->
+    <string name="addBroadcast">0</string>
+    <string name="addAutoDoor">1</string>
+    <string name="addProgramSwitch">2</string>
+    <string name="addBattery">3</string>
+    <string name="addPC">4</string>
+    <string name="addRevolvingDoor">5</string>
+    <string name="addSwingL">6</string>
+    <string name="addSwingR">7</string>
+    <string name="addSignalCollect">8</string>
+    
+    <!-- 自动门控制器命令字 -->
+    <string name="cmdADInit">51</string>
+    <string name="cmdPCDoorClose">7C</string>
+
+    <!-- 模式开关命令字-->
+    <string name="cmdSPInit">80</string>
+    <string name="cmdSPOpenSpeedMax">81</string>
+    <string name="cmdSPCloseSpeedMax">82</string>
+
+
+    <string name="cmdSPDoorHoldTime">85</string>
+    <string name="cmdSPHistoryErroCode">86</string>
+
+    <string name="cmdSPSoftVersion">8A00</string>
+    <string name="cmdSPTripStart">8A01</string>
+    <string name="cmdSPTripEnd">8A02</string>
+    <string name="cmdSPTripHalf">8A03</string>
+    <string name="cmdSPSpeedMin">8A04</string>
+    <string name="cmdSPPIDPeriod">8A05</string>
+    <string name="cmdSPSpeedLock">8A06</string>
+    <string name="cmdSPLockDelay">8A07</string>
+    <string name="cmdSPLockRetryNB">8A08</string>
+    <string name="cmdSPLockRetryPeriod">8A09</string>
+    <string name="cmdSPSpeedEvenPWMThreshold">8A0A</string>
+    <string name="cmdSPSpeedCrawlPWMThreshold">8A0B</string>
+    <string name="cmdSPCanErrorCode">8A0C</string>
+    <string name="cmdSPSpeedBreakPWMThreshold">8A0D</string>
+    <string name="cmdSPDoorOpenRate">8A0E</string>
+    <string name="cmdSPForceSlowOpenLength">8A0F</string>
+
+    <string name="cmdSPSpeedCrawl">8A10</string>
+    <string name="cmdSPCanSync">8A11</string>
+    <string name="cmdSPSpeedDropRate">8A12</string>
+    <string name="cmdSPCrawlOpenLength">8A13</string>
+    <string name="cmdSPCrawlCloseLength">8A14</string>
+    <string name="cmdSPSlowOpenLength">8A15</string>
+    <string name="cmdSPSlowCloseLength">8A16</string>
+    <string name="cmdSPHoldCloseUpper">8A17</string>
+    <string name="cmdSPHoldCloseLower">8A18</string>
+    <string name="cmdSPTheoryOpenBreakDistance">8A19</string>
+    <string name="cmdSPTheoryCloseBreakDistance">8A1A</string>
+    <string name="cmdSPTheorySpeedUpDistance">8A1B</string>
+    <string name="cmdSPActualSpeedUpDistance">8A1C</string>
+    <string name="cmdSPActualBreakDistance">8A1D</string>
+    <string name="cmdSPSpeedUpTimeMin">8A1E</string>
+    <string name="cmdSPReverseBreak">8A1F</string>
+
+    <string name="cmdSPPWMMin">8A20</string>
+    <string name="cmdSPPWMMax">8A21</string>
+    <string name="cmdSPLimitCurrentMax">8A22</string>
+    <string name="cmdSPCurrentLevel1">8A23</string>
+    <string name="cmdSPCurrentLevel2">8A24</string>
+    <string name="cmdSPCurrentLevel3">8A25</string>
+    <string name="cmdSPCurrentLevel4">8A26</string>
+    <string name="cmdSPCurrentHoldOpen">8A27</string>
+    <string name="cmdSPCurrentHoldClose">8A28</string>
+    <string name="cmdSPPIDDrive">8A29</string>
+    <string name="cmdSPPIDRecall">8A2A</string>
+    <string name="cmdSPPIDBreak">8A2B</string>
+    <string name="cmdSPPIDReverse">8A2C</string>
+    <string name="cmdSPDoorSmoothness">8A2D</string>
+    <string name="cmdSPOpenModeHoldTime">8A2E</string>
+    <string name="cmdSPCurrentIntegral">8A2F</string>
+
+    <string name="cmdSPRunCycleThisEpoch">8A30</string>
+    <string name="cmdSPRunCycleAllEpoch">8A31</string>
+    <string name="cmdSPTempOverUpper">8A32</string>
+    <string name="cmdSPTempOverLower">8A33</string>
+    <string name="cmdSPCanAddress">8A34</string>
+    <string name="cmdSPBatteryEnable">8A35</string>
+    <string name="cmdSPResistanceRetryNB">8A36</string>
+    <string name="cmdSPResistanceRetryPeriod">8A37</string>
+    <string name="cmdSPTestModeLockFrequency">8A38</string>
+<!--
+    <string name="cmdSP">8A39</string>
+    <string name="cmdSP">8A3A</string>
+    <string name="cmdSP">8A3B</string>
+    <string name="cmdSP">8A3C</string>
+    <string name="cmdSP">8A3D</string>
+    <string name="cmdSP">8A3E</string>
+    <string name="cmdSP">8A3F</string>
+-->
+
+<!--    <string name="cmdSP">8A40</string> -->
+    <string name="cmdSPActualCurrentMax">8A41</string>
+    <string name="cmdSPActualTemperatureMax">8A42</string>
+    <string name="cmdSPTemperature">8A43</string>
+<!--    <string name="cmdSP">8A44</string>-->
+    <string name="cmdSPLastRestartMsg">8A45</string>
+    <string name="cmdSPFatalErrorMsg">8A46</string>
+    <string name="cmdSPLicenseState">8A47</string>
+<!--
+    <string name="cmdSP">8A48</string>
+    <string name="cmdSP">8A49</string>
+    <string name="cmdSP">8A4A</string>
+    <string name="cmdSP">8A4B</string>
+    <string name="cmdSP">8A4C</string>
+    <string name="cmdSP">8A4D</string>
+    <string name="cmdSP">8A4E</string>
+    <string name="cmdSP">8A4F</string>
+-->
+
+<!--    <string name="cmdSP">8A50</string>-->
+    <string name="cmdSPBatteryState">8A51</string>
+    <string name="cmdSPBatteryError">8A52</string>
+    <string name="cmdSPBatteryCapacity">8A53</string>
+    <string name="cmdSPChargeTime">8A54</string>
+    <string name="cmdSPDischargeTime">8A55</string>
+    <string name="cmdSPBatteryPair">8A56</string>
+    <string name="cmdSPBatterySleep">8A57</string>
+<!--
+    <string name="cmdSP">8A58</string>
+    <string name="cmdSP">8A59</string>
+    <string name="cmdSP">8A5A</string>
+    <string name="cmdSP">8A5B</string>
+    <string name="cmdSP">8A5C</string>
+    <string name="cmdSP">8A5D</string>
+    <string name="cmdSP">8A5E</string>
+    <string name="cmdSP">8A5F</string>
+-->
+
+
+    <!-- 旋转门专用命令字 -->
+    <string name="cmdRDInit">8B00</string>
+    <string name="cmdRDVersion">8B01</string>
+    <string name="cmdRDMode">8B02</string>
+    <string name="cmdRDErrorCode">8B03</string>
+    <string name="cmdRDHistoryErrorCode">8B04</string>
+    <string name="cmdRDSensorMonitor">8B05</string>
+    <string name="cmdRDSelfTesting">8B06</string>
+    <string name="cmdRDRunningStateMonitor">8B07</string>
+    <string name="cmdRDSignalMonitor">8B08</string>
+<!--
+    <string name="cmdRD">8B09</string>
+    <string name="cmdRD">8B0A</string>
+    <string name="cmdRD">8B0B</string>
+    <string name="cmdRD">8B0C</string>
+    <string name="cmdRD">8B0D</string>
+    <string name="cmdRD">8B0E</string>
+    <string name="cmdRD">8B0F</string>
+-->
+
+
+    <string name="cmdRDTripDistance">8B10</string>
+    <string name="cmdRDLockPosition">8B11</string>
+    <string name="cmdRDSlidingDoorPosition">8B12</string>
+    <string name="cmdRDWinterPostion">8B13</string>
+    <string name="cmdRDSummerPosition">8B14</string>
+    <string name="cmdRDRiskZone1Start">8B15</string>
+    <string name="cmdRDRiskZone1End1">8B16</string>
+    <string name="cmdRDRiskZone1End2">8B17</string>
+    <string name="cmdRDRiskZone2Start">8B18</string>
+    <string name="cmdRDRiskZone2End1">8B19</string>
+    <string name="cmdRDRiskZone2End2">8B1A</string>
+    <string name="cmdRDNowPosition">8B1B</string>
+<!--
+    <string name="cmdRD">8B1C</string>
+    <string name="cmdRD">8B1D</string>
+    <string name="cmdRD">8B1E</string>
+    <string name="cmdRD">8B1F</string>
+-->
+
+    <string name="cmdRDSpeedNormal">8B20</string>
+    <string name="cmdRDSpeedIdling">8B21</string>
+    <string name="cmdRDSpeedSummer">8B22</string>
+    <string name="cmdRDRunningSpeed">8B23</string>
+    <string name="cmdRDDisabledSpeed">8B24</string>
+<!--
+    <string name="cmdRD">8B25</string>
+    <string name="cmdRD">8B26</string>
+    <string name="cmdRD">8B27</string>
+-->
+    <string name="cmdRDCurrentLimitMax">8B28</string>
+    <string name="cmdRDCurrentLimit">8B29</string>
+    <string name="cmdRDRunningCurrent">8B2A</string>
+    <string name="cmdRDCurrentLearn">8B2B</string>
+    <string name="cmdRDResistanceThreshold">8B2C</string>
+<!--
+    <string name="cmdRD">8B2D</string>
+    <string name="cmdRD">8B2E</string>
+    <string name="cmdRD">8B2F</string>
+-->
+
+    <string name="cmdRDDriverBaudRate">8B50</string>
+    <string name="cmdRDDriverControlMode">8B51</string>
+    <string name="cmdRDDriverSpeedUp">8B52</string>
+    <string name="cmdRDDriverSpeedDown">8B53</string>
+    <string name="cmdRDDriverSpeedBreak">8B54</string>
+    <string name="cmdRDDriverPIDMainSpeed">8B55</string>
+    <string name="cmdRDDriverPIDSubSpeed">8B56</string>
+    <string name="cmdRDDriverPIDCurrent">8B57</string>
+    <string name="cmdRDDriverSaveParameter">8B58</string>
+    <string name="cmdRDDriverOpen">8B59</string>
+    <string name="cmdRDDriverRestart">8B5A</string>
+    <string name="cmdRDDriverSpeedControl">8B5B</string>
+    <string name="cmdRDDriverCurrent">8B5C</string>
+    <string name="cmdRDDriverVoltage">8B5D</string>
+    <string name="cmdRDDriverSpeed">8B5E</string>
+    <string name="cmdRDDriverPosition">8B5F</string>
+
+
+    <!-- 上位机命令-->
+    <string name="cmdPCDoorType">A000</string>
+    <string name="cmdPCMotorType">A001</string>
+    <string name="cmdPCLockFeedback">A002</string>
+    <string name="cmdPCSwitchType">A003</string>
+    <string name="cmdPCCurrentLevel">A004</string>
+<!--    <string name="cmdPC">A005</string>-->
+<!--    <string name="cmdPCSpeedLock">A006</string>-->
+<!--    <string name="cmdPC">A007</string>-->
+
+    <string name="cmdPCHardwareMonitor">A1</string>
+    <string name="cmdPCRunningMonitor">A2</string>
+
+    <string name="cmdPCAnswerOK">C0</string>
+<!--    <string name="cmdPC">C1</string> -->
+    <string name="cmdPCRunningMode">C2</string>
+    <string name="cmdPCPowerLowState">C3</string>
+    <string name="cmdPCLastErrorCode">C4</string>
+    <string name="cmdPCLastTenErrorCode">C5</string>
+    <string name="cmdPCRestart">C6</string>
+    <string name="cmdPCDoorOpen">C7</string>
+    <string name="cmdPCSyncMode">C8</string>
+    <string name="cmdPCRestore">C9</string>
+    <string name="cmdPCOpenSpeedMax">CA</string>
+<!--    <string name="cmdPC">CB</string> -->
+    <string name="cmdPCCloseSpeedMax">CC</string>
+<!--    <string name="cmdPCHoldOpenTime">CD</string>-->
+<!--    <string name="cmdPC">CE</string>-->
+    <string name="cmdPCCloseSlowLengthLearning">CF</string>
+
+    <string name="cmdPCHoldOpenTime">D2</string>
+<!--
+    <string name="cmdPC">E001</string>
+    <string name="cmdPC">E002</string>
+-->
+    <string name="cmdPCRunningDataSampling">F0</string>
+    <string name="cmdPCTestMode">FF</string>
+
+
+
+
+</resources>

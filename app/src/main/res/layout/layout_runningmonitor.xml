@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/ic_launcher_background"
+    android:id="@+id/layout_runningmonitor">
+        <!--    运行状态监控-->
+        <!--    自动门状态：-->
+        <!--    运行次数、速度、位置、温度、接口、等-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:scrollbars="vertical">
+
+        <lafaya.revolvingdoor.utils.AutoCountListView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid_runningmonitor_msg"
+            android:scrollbars="none"
+            android:gravity="center_horizontal"
+            android:numColumns="2"
+            android:clickable="false"
+            android:focusable="false"
+            android:verticalSpacing="3dp"
+            android:listSelector="@color/transparent"/>
+        <include layout="@layout/item_port_status"/>
+        <include layout="@layout/item_dip_status"/>
+
+
+<!--        <GridView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/grid_runningmonitor_port"-->
+<!--            android:scrollbars="none"-->
+<!--            android:verticalSpacing="3dp"-->
+<!--            android:horizontalSpacing="3dp"-->
+<!--            android:numColumns="4"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--               android:listSelector="@color/colorPrimary"-->
+<!--            android:background="@color/colorBackground" />-->
+<!--        <GridView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="3dp"-->
+<!--            android:id="@+id/grid_runningmonitor_dip"-->
+<!--            android:scrollbars="none"-->
+<!--            android:verticalSpacing="3dp"-->
+<!--            android:horizontalSpacing="3dp"-->
+<!--            android:numColumns="10"-->
+<!--            android:clickable="false"-->
+<!--            android:focusable="false"-->
+<!--            android:listSelector="@color/colorPrimary"-->
+<!--            android:background="@color/colorBackground"/>-->
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/button_runningmonitor_return"
+            android:gravity="center"
+            android:textSize="24dp"
+            android:text="退 出"
+            android:textColor="@color/colorBackground"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+</RelativeLayout>
+

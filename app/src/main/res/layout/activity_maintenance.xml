@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="120dp"
+    android:id="@+id/layout_activity_maintenance">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:textSize="24dp"
+            android:text="系统重启"
+            android:textColor="@color/colorString"
+            android:id="@+id/button_mainrestart"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:textSize="24dp"
+            android:text="恢复出厂设置"
+            android:textColor="@color/colorString"
+            android:id="@+id/button_mainreset"/>
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textSize="24dp"-->
+<!--            android:text="发送开门指令"-->
+<!--            android:textColor="@color/colorString"-->
+<!--            android:id="@+id/button_dooropen"/>-->
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textSize="24dp"-->
+<!--            android:text="发送关门指令"-->
+<!--            android:textColor="@color/colorString"-->
+<!--            android:id="@+id/button_doorclose"/>-->
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:textSize="24dp"
+            android:text="实时监控"
+            android:textColor="@color/colorString"
+            android:id="@+id/button_runningmonitor"/>
+
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:textSize="24dp"-->
+<!--            android:text="硬件监控"-->
+<!--            android:textColor="@color/colorString"-->
+<!--            android:id="@+id/button_hardwaremonitor"/>-->
+    </LinearLayout>
+
+<!--    -->
+    <include layout="@layout/layout_maintenance_msg"/>
+    <include layout="@layout/layout_runningmonitor"/>
+<!--    <include layout="@layout/layout_hardwaremonitor"/>-->
+
+
+</RelativeLayout>

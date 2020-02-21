@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:background="@color/colorBackground"
+    android:gravity="center_vertical">
+    <TextView
+        android:layout_marginStart="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/parameter_grid_name"
+        android:layout_marginLeft="20dp"
+        android:gravity="left"
+        android:textSize="22dp"
+        android:text="常转速度"
+        android:textColor="@color/colorString"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parameter_grid_value"
+            android:layout_marginRight="10dp"
+            android:textSize="22dp"
+            android:text="99999999"
+            android:textColor="@color/colorString"/>
+        <TextView
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/parameter_grid_unit"
+            android:layout_marginRight="10dp"
+            android:textSize="20dp"
+            android:text="mm/rad"
+            android:textColor="@color/colorString"/>
+    </LinearLayout>
+
+</LinearLayout>

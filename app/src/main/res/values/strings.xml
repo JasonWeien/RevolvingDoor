@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RevolvingDoor</string>
+
+    <string name="no_serial_device">找不到串口设备</string>
+
+    <!--  运行模式 -->
+    <string name="RDModeNormal">01</string>
+    <string name="RDModeNormalName">怠速模式</string>
+    <string name="RDModeWinter">02</string>
+    <string name="RDModeWinterName">冬季模式</string>
+    <string name="RDModeSummer">03</string>
+    <string name="RDModeSummerName">夏季模式</string>
+    <string name="RDModeSlidingAuto">04</string>
+    <string name="RDModeSlidingAutoName">平滑自动</string>
+    <string name="RDModeSlidingExit">05</string>
+    <string name="RDModeSlidingExitName">平滑单向</string>
+    <string name="RDModeSlidingOpen">06</string>
+    <string name="RDModeSlidingOpenName">平滑常开</string>
+    <string name="RDModeLock">07</string>
+    <string name="RDModeLockName">夜间锁门</string>
+    <string name="RDModeManual">08</string>
+    <string name="RDModeManualName">手动模式</string>
+
+
+    <!--  故障代码 -->
+    <string name="RDErrorCode00">00</string>
+    <string name="RDErrorCode00Describe">系统正常运行</string>
+    <string name="RDErrorCode01">01</string>
+    <string name="RDErrorCode01Describe">异常警告：开门异常，请您检测门扇是否被挡住！</string>
+
+
+    <!--  旋转门参数名称 -->
+    <string name="parRDPositionLock">锁门位置</string>
+    <string name="parRDPositionSlidingStop">平滑门停机位置</string>
+    <string name="parRDPositionWinterStop">冬季停机位置</string>
+    <string name="parRDPositionSummerStop">夏季停机位置</string>
+    <string name="parRDPositionRisk1Start">危险区域1起点位置</string>
+    <string name="parRDPositionRisk1End1">危险区域1终点位置1</string>
+    <string name="parRDPositionRisk1End2">危险区域1终点位置2</string>
+    <string name="parRDPositionRisk2Start">危险区域2起点位置</string>
+    <string name="parRDPositionRisk2End1">危险区域2终点位置1</string>
+    <string name="parRDPositionRisk2End2">危险区域2终点位置2</string>
+
+    <string name="parRDSpeedNormal">运行速度</string>
+    <string name="parRDSpeedW_S">冬季/夏季速度</string>
+    <string name="parRDSpeedIdle">怠速速度</string>
+    <string name="parRDSpeedSlow">残障速度</string>
+
+    <string name="parRDCurrentLimitMax">最大允许运行电流</string>
+    <string name="parRDCurrentRunningLearn">运行电流学习</string>
+
+    <string name="parRDDragRunningThreshold">运行阻力门槛</string>
+
+    <string name="parRDDriverCanBaudRate">驱动器Can波特率</string>
+    <string name="parRDDriverControlMode">驱动器控制模式</string>
+    <string name="parRDDriverSpeedUp">驱动器加速命令</string>
+    <string name="parRDDriverBraking">驱动器减速命令</string>
+    <string name="parRDDriverEmergencyBraking">驱动器急停命令</string>
+    <string name="parRDDriverPIDSpeed">驱动器PID速度控制</string>
+    <string name="parRDDriverPIDSubSPeed">驱动器PID子速度控制</string>
+    <string name="parRDDriverPIDCurrent">驱动器PID电流控制</string>
+
+
+
+
+    <!--  平滑自动门参数名称 -->
+    <!-- 位置-->
+    <string name="parSDLengthCrawlOpen">开门爬行距离</string>
+    <string name="parSDLengthEndOpen">开门末段距离</string>
+    <string name="parSDLengthCrawlClose">关门爬行距离</string>
+    <string name="parSDLengthEndClose">关门末段距离</string>
+    <string name="parSDLengthHoldUp">关门保持上限</string>
+    <string name="parSDLengthEndDown">关门保持下限</string>
+    <string name="parSDLengthSlowOpen">开门缓行距离</string>
+    <string name="parSDLengthEndCloseLearn">关门末段距离学习</string>
+
+    <!-- 速度-->
+    <string name="parSDSpeedOpenMax">开门最大速度</string>
+    <string name="parSDSpeedCloseMax">关门最大速度</string>
+    <string name="parSDSpeedCrawl">缓行速度</string>
+    <string name="parSDSpeedSlow">速度过低门槛</string>
+    <string name="parSDSpeedDropRate">速度跌落比</string>
+    <string name="parSDSpeedLock">速度锁定</string>
+    <string name="parSDSpeedUpTimeMin">最小加速时间</string>
+
+    <!-- 电流-->
+    <string name="parSDCurrentLimitMax">最大电流限流值</string>
+    <string name="parSDCurrentLimitOne">电流限流一档</string>
+    <string name="parSDCurrentLimitTwo">电流限流二档</string>
+    <string name="parSDCurrentLimitThree">电流限流三档</string>
+    <string name="parSDCurrentLimitFour">电流限流四档</string>
+    <string name="parSDCurrentKeepOpen">开门保持电流</string>
+    <string name="parSDCurrentKeepClose">关门保持电流</string>
+    <!-- PWM-->
+    <string name="parSDPIDPeriod">PID调节周期</string>
+    <string name="parSDPIDDrive">PID驱动系数</string>
+    <string name="parSDPIDRecall">PID撤消系数</string>
+    <string name="parSDPIDBreak">PID制动系数</string>
+    <string name="parSDPIDReverse">PID反向系数</string>
+    <string name="parSDPWMMax">PWM最大值</string>
+    <string name="parSDPWMMin">PWM最小值</string>
+    <string name="parSDPWMEvenSpeedReduceThreshold">匀速不减PWM门槛</string>
+    <string name="parSDPWMBreakSpeedIncreaseThreshold">刹车不增PWM门槛</string>
+    <string name="parSDPWMCrawlSpeedReducePWMThreshold">爬行、末段不减PWM门槛</string>
+
+    <!-- Lock-->
+    <string name="parSDLockMotionDelay">锁动作延迟时间</string>
+    <string name="parSDLockRetryTimes">锁动作失败重试次数</string>
+    <string name="parSDLockRetryInterval">锁动作失败重试间隔</string>
+    <!-- 其它-->
+    <string name="parSDOpenRate">门扇开度</string>
+    <string name="parSDSmoothness">运行平稳度</string>
+    <string name="parSDKeepOpenTime">开门保持时间</string>
+    <string name="parSDResistanceRetryTimesMax">最大遇阻重试次数</string>
+    <string name="parSDResistanceRetryInterval">遇阻重试间隔</string>
+    <string name="parSDReverseBreak">反向刹车标志</string>
+    <string name="parSDKeepModeOpenTime">常开模式保持时间</string>
+
+    <string name="parSDBatteryEnable">备用电源</string>
+    <string name="parSDTempOverUpper">超温上限温度</string>
+    <string name="parSDTempOverLower">超温下限温度</string>
+    <string name="parSDTestModeLockFrequency">测试模式锁动作频率</string>
+
+    <string name="parSDRunningMode">运行模式</string>
+    <string name="parSDPowerLowMotion">系统失电动作</string>
+    <string name="parSDTestMode">测试模式</string>
+
+
+    <!--    可读信息-->
+    <string name="infoSPSoftVersion">软件版本号</string>
+    <string name="infoSPTripStart">行程起点位置</string>
+    <string name="infoSPTripEnd">行程终点位置</string>
+    <string name="infoSPRunCycleThisEpoch">本次累计开门总次数</string>
+    <string name="infoSPRunCycleAllEpoch">历史累计开门总次数</string>
+    <string name="infoSPActualCurrentMax">本次曾经使用的电流最大值</string>
+    <string name="infoSPActualTemperatureMax">本次曾经使用的温度最大值</string>
+    <string name="infoSPTemperature">当前系统温度</string>
+    <string name="infoPCLastErrorCode">当前报警代码</string>
+    <string name="infoPCLastTenErrorCode">最近10次报警代码</string>
+    <string name="infoSPLastRestartMsg">最近10次系统复位原因</string>
+    <string name="infoSPFatalErrorMsg">严重错误信息</string>
+
+
+
+
+<!--message-->
+    <string name="msgMaintenancRestart">系统将重新启动，请确认？</string>
+    <string name="msgMaintenancReset">所有系统参数将恢复出厂设置，请确认？</string>
+
+</resources>

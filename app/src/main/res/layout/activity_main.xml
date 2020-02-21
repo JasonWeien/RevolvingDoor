@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".view.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_lafaya_logo_1"
+            />
+    </LinearLayout>
+
+
+    <include layout = "@layout/activity_home"/>
+    <include layout = "@layout/activity_mode"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout = "@layout/activity_maintenance"/>
+            <include layout = "@layout/activity_parameter"/>
+            <include layout = "@layout/activity_more"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout = "@layout/titlebar"/>
+
+</RelativeLayout>

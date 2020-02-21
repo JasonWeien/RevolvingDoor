@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="50dp"
+    android:layout_marginBottom="120dp"
+    android:id="@+id/layout_activity_parameter"
+    android:scrollbars="vertical">
+        <!-- 旋转主体参数-->
+        <!-- 中间门参数-->
+        <!-- 门翼1参数-->
+        <!-- 门翼2参数-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/button_parRevolving"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"
+            android:drawableRight="@drawable/ic_expand_less_black"
+            android:text="旋转自动门参数"
+            android:textSize="24dp"
+            android:textColor="@color/colorString"/>
+        <include layout="@layout/layout_parameter_revolvingdoor" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/button_parSliding"
+            android:drawableRight="@drawable/ic_expand_less_black"
+            android:text="平滑自动门参数"
+            android:textSize="24dp"
+            android:textColor="@color/colorString"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"/>
+        <include layout="@layout/layout_parameter_sliding"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/button_parWingL"
+            android:drawableRight="@drawable/ic_expand_less_black"
+            android:text="门翼1参数"
+            android:textSize="24dp"
+            android:textColor="@color/colorString"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"/>
+        <include layout="@layout/layout_parameter_wingl"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/button_parWingR"
+            android:drawableRight="@drawable/ic_expand_less_black"
+            android:text="门翼2参数"
+            android:textSize="24dp"
+            android:textColor="@color/colorString"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:gravity="center_vertical"/>
+        <include layout="@layout/layout_parameter_wingr"/>
+    </LinearLayout>
+
+    <!-- 参数设置对话框-->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#B4F3F3F3"
+        android:gravity="center_vertical"
+        android:id="@+id/layout_parameter_dialog">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="#d2c8c8c8"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_parameter_settitle"
+                android:text="title name"
+                android:textColor="@color/colorString"
+                android:textSize="24dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:layout_gravity="center_horizontal"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="当前数值:"
+                    android:textSize="22dp"
+                    android:textColor="@color/colorString"/>
+                <TextView
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/text_parameter_setold"
+                    android:textSize="22dp"
+                    android:gravity="right"
+                    android:textColor="@color/colorString"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="目标数值:"
+                    android:textSize="22dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/colorString"/>
+                <EditText
+                    android:layout_marginLeft="30dp"
+                    android:layout_width="150dp"
+                    android:layout_height="30dp"
+                    android:inputType="number"
+                    android:hint="0"
+                    android:background="@color/colorBackground"
+                    android:id="@+id/edittext_parameter_setnew"
+                    android:textSize="22dp"
+                    android:gravity="right|center_vertical"
+                    android:textColor="@color/colorString"/>
+            </LinearLayout>
+            <SeekBar
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:id="@+id/seekbar_parameter_set"
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:progress="0"
+                android:gravity = "center_vertical"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:secondaryProgress="0"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="300dp"
+            android:gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp">
+            <Button
+                android:layout_alignParentBottom="true"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:background="#ffff"
+                android:text="返回"
+                android:textSize="24dp"
+                android:id="@+id/button_parameter_cancle"/>
+            <Button
+                android:layout_alignParentBottom="true"
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary"
+                android:text="保存"
+                android:textSize="24dp"
+                android:textColor="#ffff"
+                android:layout_alignParentRight="true"
+                android:id="@+id/button_parameter_save"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBackground"
+        android:id="@+id/relativelayout_parameter_set">
+    </RelativeLayout>
+
+</RelativeLayout>
