@@ -5,6 +5,8 @@
     android:layout_marginTop="50dp"
     android:layout_marginBottom="120dp"
     android:id="@+id/layout_activity_more">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -55,7 +57,19 @@
             android:text="门翼2信息"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
-        <include layout="@layout/layout_info_autodoor" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <include layout="@layout/layout_info_autodoor" />
+            </LinearLayout>
+
+        </ScrollView>
 
 
 <!--        <Button-->
@@ -81,6 +95,8 @@
 <!--            android:textSize="24dp"-->
 <!--            android:textColor="@color/colorString"/>-->
     </LinearLayout>
+
+
 
 
 </RelativeLayout>

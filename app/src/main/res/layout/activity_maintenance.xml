@@ -6,6 +6,8 @@
     android:layout_marginBottom="120dp"
     android:id="@+id/layout_activity_maintenance">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -72,9 +74,22 @@
 <!--            android:textColor="@color/colorString"-->
 <!--            android:id="@+id/button_hardwaremonitor"/>-->
     </LinearLayout>
-
-<!--    -->
     <include layout="@layout/layout_maintenance_msg"/>
     <include layout="@layout/layout_runningmonitor"/>
+
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
+<!--&lt;!&ndash;    &ndash;&gt;-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
+<!--            <include layout="@layout/layout_runningmonitor"/>-->
+<!--        </LinearLayout>-->
 <!--    <include layout="@layout/layout_hardwaremonitor"/>-->
+
+<!--    </ScrollView>-->
+
 </RelativeLayout>

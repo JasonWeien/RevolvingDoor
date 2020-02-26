@@ -25,7 +25,7 @@
             android:text="旋转自动门参数"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
-        <include layout="@layout/layout_parameter_revolvingdoor" />
+
 
         <Button
             android:layout_width="match_parent"
@@ -38,7 +38,6 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:gravity="center_vertical"/>
-        <include layout="@layout/layout_parameter_sliding"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -50,7 +49,6 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:gravity="center_vertical"/>
-        <include layout="@layout/layout_parameter_wingl"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -62,7 +60,20 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:gravity="center_vertical"/>
-        <include layout="@layout/layout_parameter_wingr"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <include layout="@layout/layout_parameter_revolvingdoor" />
+                <include layout="@layout/layout_parameter_sliding"/>
+                <include layout="@layout/layout_parameter_wingl"/>
+                <include layout="@layout/layout_parameter_wingr"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <!-- 参数设置对话框-->

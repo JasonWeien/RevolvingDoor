@@ -8,23 +8,16 @@
 
 
 
+
+    <include layout = "@layout/activity_maintenance"/>
+
     <include layout = "@layout/activity_home"/>
     <include layout = "@layout/activity_mode"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:scrollbars="none">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <include layout = "@layout/activity_maintenance"/>
-            <include layout = "@layout/activity_parameter"/>
-            <include layout = "@layout/activity_more"/>
-        </LinearLayout>
-    </ScrollView>
+    <include layout = "@layout/activity_parameter"/>
+    <include layout = "@layout/activity_more"/>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
