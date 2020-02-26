@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import lafaya.revolvingdoor.R;
+import lafaya.revolvingdoor.utils.AutoCountListView;
 import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.utils.GridUtils;
 import lafaya.revolvingdoor.view.MainActivity;
@@ -18,9 +19,7 @@ import lafaya.revolvingdoor.view.PageParameter;
 
 public class ParameterWingL {
     private Activity activity;
-    private GridView grid_parWingL;
-
-    private GridView grid_infoWingL;
+    private AutoCountListView grid_parWingL;
 
 
     //查询菜单位置

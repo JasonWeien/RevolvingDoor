@@ -9,13 +9,13 @@ import android.widget.SimpleAdapter;
 import java.util.HashMap;
 import java.util.List;
 import lafaya.revolvingdoor.R;
+import lafaya.revolvingdoor.utils.AutoCountListView;
 import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.view.MainActivity;
 import lafaya.revolvingdoor.view.PageParameter;
 
 public class ParameterSliding {
-    private GridView grid_parSliding;
-    private GridView grid_infoSliding;
+    private AutoCountListView grid_parSliding;
 //    private Context mContext = MainActivity.sContext;
 
     //查询菜单位置

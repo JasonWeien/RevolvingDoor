@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
@@ -120,6 +122,10 @@ public class PageMore {
         DataBase.instance().mapInfoWingL = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoWingL,null,0);
         DataBase.instance().mapInfoWingR = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoWingR,null,0);
 
+        DataBase.instance().mapErrorSliding = ParameterUpdate.instance().paraErrorUpdate(DataBase.instance().mapErrorSliding,null,"");
+        DataBase.instance().mapErrorWingL = ParameterUpdate.instance().paraErrorUpdate(DataBase.instance().mapErrorWingL,null,"");
+        DataBase.instance().mapErrorWingR = ParameterUpdate.instance().paraErrorUpdate(DataBase.instance().mapErrorWingR,null,"");
+
 
 
         //初始化界面
@@ -180,7 +186,6 @@ public class PageMore {
                     default:
                         break;
                 }
-
 
             }
         });
@@ -288,7 +293,7 @@ public class PageMore {
                 //查询参数
                 //查询参数，以上一次查询位置为起点
                 if(checkWaiting){
-                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addSwingR),12);
+                    checkInfoAutoDoor(MainActivity.sContext.getString(R.string.addSwingR),9);
                     startTimer();
                 }
                 break;
@@ -323,13 +328,18 @@ public class PageMore {
             button_infoWingL.setVisibility(state_tmp[2]);
             button_infoWingR.setVisibility(state_tmp[3]);
 
-//            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoRevolving));
-            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoSliding));
-            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingL));
-            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingR));
+            updateInfo();
+            updateErrorCode();
 
         }
 
+    }
+
+    private void updateInfo(){
+        //            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoRevolving));
+        updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoSliding));
+        updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingL));
+        updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingR));
     }
 
 
@@ -344,43 +354,76 @@ public class PageMore {
     }
 
 //=============================================================================
-//    private void updateGrideInfoTenErrorCode(){
-//        List<HashMap<String, Object>> list;
-//        for(int i = 0; i < 10; i++){
-//            list.add("00", "无报警代码");
-//        }
-////        listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg));
-//
-////        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),
-////                listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg))));
-//
-////        list = DataBase.instance().mapInfoSliding
-//        //写入grid view
-//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
-//                list,
-//                R.layout.item_error_list,
-//                new String[] { "text", "value"},
-//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
-//        grid_info_TenErrorCode.setAdapter(saImageItems);
-//    }
-//    private void updateGrideInfoTenResetCode(List<HashMap<String, Object>> list){
-//        //写入grid view
-//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
-//                list,
-//                R.layout.item_error_list,
-//                new String[] { "text", "value"},
-//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
-//        grid_info_TenResetCode.setAdapter(saImageItems);
-//    }
-//    private void updateGrideInfoBadErrorCode(List<HashMap<String, Object>> list){
-//        //写入grid view
-//        SimpleAdapter saImageItems = new SimpleAdapter(activity,
-//                list,
-//                R.layout.item_error_list,
-//                new String[] { "text", "value"},
-//                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
-//        grid_info_BadErrorCode.setAdapter(saImageItems);
-//    }
+
+    private void updateErrorCode(){
+        updateGrideInfoTenErrorCode(DataBase.instance().mapErrorSliding.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode)));
+        updateGrideInfoTenErrorCode(DataBase.instance().mapErrorWingL.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode)));
+        updateGrideInfoTenErrorCode(DataBase.instance().mapErrorWingR.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode)));
+
+        updateGrideInfoLastRestartMsg(DataBase.instance().mapErrorSliding.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg)));
+        updateGrideInfoLastRestartMsg(DataBase.instance().mapErrorWingL.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg)));
+        updateGrideInfoLastRestartMsg(DataBase.instance().mapErrorWingR.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg)));
+
+        updateGrideInfoFatalErrorCode(DataBase.instance().mapErrorSliding.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg)));
+        updateGrideInfoFatalErrorCode(DataBase.instance().mapErrorWingL.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg)));
+        updateGrideInfoFatalErrorCode(DataBase.instance().mapErrorWingR.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg)));
+    }
+    private void updateGrideInfoTenErrorCode(String code){
+
+        List<HashMap<String, Object>> list = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++){
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("text", code.substring(i*2,i*2+2));
+            map.put("value", "无报警代码!");
+            list.add(map);
+        }
+
+        //写入grid view
+        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+                list,
+                R.layout.item_error_list,
+                new String[] { "text", "value"},
+                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+        grid_info_TenErrorCode.setAdapter(saImageItems);
+    }
+
+
+    private void updateGrideInfoLastRestartMsg(String code){
+        //写入grid view
+        List<HashMap<String, Object>> list = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++){
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("text", code.substring(i*2,i*2+2));
+            map.put("value", "无报警代码!");
+            list.add(map);
+        }
+        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+                list,
+                R.layout.item_error_list,
+                new String[] { "text", "value"},
+                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+        grid_info_TenResetCode.setAdapter(saImageItems);
+    }
+
+    private void updateGrideInfoFatalErrorCode(String code){
+        List<HashMap<String, Object>> list = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++){
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("text", code.substring(i*2,i*2+2));
+            map.put("value", "无报警代码!");
+            list.add(map);
+        }
+        //写入grid view
+        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+                list,
+                R.layout.item_error_list,
+                new String[] { "text", "value"},
+                new int[] { R.id.error_grid_code, R.id.error_grid_discrip});
+        grid_info_BadErrorCode.setAdapter(saImageItems);
+    }
 //=====================================================================
 
     //查询操作，当展开菜单时，查询参数。

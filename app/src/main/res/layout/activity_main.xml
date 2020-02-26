@@ -5,17 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
     tools:context=".view.MainActivity">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/colorPrimary"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_lafaya_logo_1"
-            />
-    </LinearLayout>
+
 
 
     <include layout = "@layout/activity_home"/>
@@ -35,6 +25,18 @@
             <include layout = "@layout/activity_more"/>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_lafaya_logo_1"
+            />
+    </LinearLayout>
 
     <include layout = "@layout/titlebar"/>
 

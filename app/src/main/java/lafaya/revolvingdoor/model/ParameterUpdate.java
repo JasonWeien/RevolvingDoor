@@ -1038,14 +1038,15 @@ public class ParameterUpdate{
                 listmap.get(MainActivity.sContext.getString(R.string.infoSPActualTemperatureMax)),"℃"));
         list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.infoSPTemperature),
                 listmap.get(MainActivity.sContext.getString(R.string.infoSPTemperature)), "℃"));
-        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),
-                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastErrorCode))));
-        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),
-                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode))));
-        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),
-                listmap.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg))));
-        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),
-                listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg))));
+
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastErrorCode))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg))));
         return list;
     }
 
@@ -1060,10 +1061,10 @@ public class ParameterUpdate{
             listmap.put(MainActivity.sContext.getString(R.string.infoSPActualCurrentMax),0);
             listmap.put(MainActivity.sContext.getString(R.string.infoSPActualTemperatureMax),0);
             listmap.put(MainActivity.sContext.getString(R.string.infoSPTemperature),0);
-            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),0);
-            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),0);
-            listmap.put(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),0);
-            listmap.put(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),0);
+//            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),0);
+//            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),"00000000000000000000");
+//            listmap.put(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),"00000000000000000000");
+//            listmap.put(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),"00000000000000000000");
         }else {
             if(index != null){
                 listmap.put(index,value);
@@ -1071,6 +1072,41 @@ public class ParameterUpdate{
         }
         return listmap;
     }
+
+
+
+    public List<HashMap<String, Object>> listErrorNormal(HashMap<String, String> listmap){
+        List<HashMap<String, Object>> list = new ArrayList<>();
+
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastErrorCode))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg))));
+//        list.add(GridUtils.instance().getGridViewValue(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg))));
+        return list;
+    }
+
+    public HashMap<String, String> paraErrorUpdate(HashMap<String, String> listmap,String index, String value){
+        if(listmap == null){
+            listmap = new HashMap<>();
+//            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),0);
+
+            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),"00010203040506070809");
+            listmap.put(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),"00010203040908070605");
+            listmap.put(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),"09080706050403020100");
+        }else {
+            if((index != null) && (value != "")){
+                listmap.put(index,value);
+            }
+        }
+        return listmap;
+    }
+
+
+
 
 
     public void readInfoOther(int index,String address){

@@ -5,8 +5,8 @@
     android:orientation="vertical"
     android:id="@+id/layout_parameter_sliding">
 
-    <GridView
-        android:layout_width="wrap_content"
+    <lafaya.revolvingdoor.utils.AutoCountListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/grid_parSliding"
         android:scrollbars="none"

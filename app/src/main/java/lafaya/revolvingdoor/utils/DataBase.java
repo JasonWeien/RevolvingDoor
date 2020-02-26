@@ -19,10 +19,16 @@ public class DataBase {
     public HashMap<String, Integer> mapParaRevolving;
     public HashMap<String, Integer> mapInfoRevolving;
 
+    public HashMap<String, String> mapErrorRevolving;
+
     // 通用参数：平滑门、门翼左、门翼右
     public HashMap<String, Integer> mapNormalSliding;
     public HashMap<String, Integer> mapNormalWingL;
     public HashMap<String, Integer> mapNormalWingR;
+
+    public HashMap<String, String> mapErrorSliding;
+    public HashMap<String, String> mapErrorWingL;
+    public HashMap<String, String> mapErrorWingR;
 
     public HashMap<String, Integer> mapInfoSliding;
     public HashMap<String, Integer> mapInfoWingL;

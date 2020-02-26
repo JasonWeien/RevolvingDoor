@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:id="@+id/layout_parameter_wingr">
 
-    <GridView
-        android:layout_width="wrap_content"
+    <lafaya.revolvingdoor.utils.AutoCountListView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/grid_parWingR"
         android:scrollbars="none"

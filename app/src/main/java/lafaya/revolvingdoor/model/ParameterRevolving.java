@@ -10,12 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import lafaya.revolvingdoor.R;
+import lafaya.revolvingdoor.utils.AutoCountListView;
 import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.view.PageParameter;
 
 public class ParameterRevolving {
 
-    private GridView grid_parRevolving;
+    private AutoCountListView grid_parRevolving;
 
     //查询位置
     private int posChecked = 0;
