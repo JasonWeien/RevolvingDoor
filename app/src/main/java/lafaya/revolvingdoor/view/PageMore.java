@@ -374,8 +374,9 @@ public class PageMore {
 
         for(int i = 0; i < 10; i++){
             HashMap<String, Object> map = new HashMap<>();
-            map.put("text", code.substring(i*2,i*2+2));
-            map.put("value", "无报警代码!");
+            String codetmp = code.substring(i*2,i*2+2);
+            map.put("text", codetmp);
+            map.put("value", DataBase.instance().errorCodeDescribe(codetmp));
             list.add(map);
         }
 
@@ -395,8 +396,9 @@ public class PageMore {
 
         for(int i = 0; i < 10; i++){
             HashMap<String, Object> map = new HashMap<>();
-            map.put("text", code.substring(i*2,i*2+2));
-            map.put("value", "无报警代码!");
+            String codetmp = code.substring(i*2,i*2+2);
+            map.put("text", codetmp);
+            map.put("value", DataBase.instance().errorCodeDescribe(codetmp));
             list.add(map);
         }
         SimpleAdapter saImageItems = new SimpleAdapter(activity,
@@ -412,8 +414,9 @@ public class PageMore {
 
         for(int i = 0; i < 10; i++){
             HashMap<String, Object> map = new HashMap<>();
-            map.put("text", code.substring(i*2,i*2+2));
-            map.put("value", "无报警代码!");
+            String codetmp = code.substring(i*2,i*2+2);
+            map.put("text", codetmp);
+            map.put("value", DataBase.instance().errorCodeDescribe(codetmp));
             list.add(map);
         }
         //写入grid view

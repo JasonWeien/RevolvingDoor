@@ -2,9 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
     android:gravity="center">
     <TextView
-        android:layout_width="40dp"
+        android:layout_width="60dp"
         android:layout_height="62dp"
         android:text="DIP"
         android:textColor="@color/colorString"

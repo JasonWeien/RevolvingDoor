@@ -69,17 +69,17 @@
 <!--            android:text="通讯配置"-->
 <!--            android:textSize="24dp"-->
 <!--            android:textColor="@color/colorString"/>-->
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:id="@+id/button_infoAPP"
-            android:gravity="center_vertical"
-            android:drawableRight="@drawable/ic_expand_less_black"
-            android:text="关于APP"
-            android:textSize="24dp"
-            android:textColor="@color/colorString"/>
+<!--        <Button-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:id="@+id/button_infoAPP"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:drawableRight="@drawable/ic_expand_less_black"-->
+<!--            android:text="关于APP"-->
+<!--            android:textSize="24dp"-->
+<!--            android:textColor="@color/colorString"/>-->
     </LinearLayout>
 
 

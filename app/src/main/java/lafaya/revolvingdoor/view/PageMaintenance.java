@@ -21,8 +21,7 @@ import lafaya.revolvingdoor.R;
 import lafaya.revolvingdoor.serilport.ByteUtil;
 import lafaya.revolvingdoor.serilport.RS485SendCommand;
 import lafaya.revolvingdoor.serilport.SerialPortThread;
-import lafaya.revolvingdoor.utils.AutoCountListView;
-import lafaya.revolvingdoor.utils.DataBase;
+import lafaya.revolvingdoor.utils.AutoCountGridView;
 import lafaya.revolvingdoor.utils.GridUtils;
 
 public class PageMaintenance {
@@ -40,7 +39,7 @@ public class PageMaintenance {
     private Button button_maintenance_return, button_maintenance_save;
 
     private Button button_runningmonitor_return;
-    private AutoCountListView grid_runningmonitor_msg;
+    private AutoCountGridView grid_runningmonitor_msg;
     private TextView text_port_status1,text_port_status2,text_port_status3,text_port_status4,text_port_status5,text_port_status6
             ,text_port_status7,text_port_status8,text_port_status9,text_port_status10,text_port_status11
             ,text_port_status12,text_port_status13,text_port_status14,text_port_status15,text_port_status16
@@ -235,6 +234,7 @@ public class PageMaintenance {
                 new String[] { "text", "value", "unit"},
                 new int[] { R.id.text_msg_status_name, R.id.text_msg_status_value, R.id.text_msg_status_unit});
         grid_runningmonitor_msg.setAdapter(saImageItems);
+        grid_runningmonitor_msg.getLayoutParams();
     }
 
     //    硬件接口状态

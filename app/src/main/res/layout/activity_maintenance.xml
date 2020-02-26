@@ -5,6 +5,7 @@
     android:layout_marginTop="50dp"
     android:layout_marginBottom="120dp"
     android:id="@+id/layout_activity_maintenance">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -76,6 +77,4 @@
     <include layout="@layout/layout_maintenance_msg"/>
     <include layout="@layout/layout_runningmonitor"/>
 <!--    <include layout="@layout/layout_hardwaremonitor"/>-->
-
-
 </RelativeLayout>

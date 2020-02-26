@@ -1095,8 +1095,8 @@ public class ParameterUpdate{
 //            listmap.put(MainActivity.sContext.getString(R.string.infoPCLastErrorCode),0);
 
             listmap.put(MainActivity.sContext.getString(R.string.infoPCLastTenErrorCode),"00010203040506070809");
-            listmap.put(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),"00010203040908070605");
-            listmap.put(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),"09080706050403020100");
+            listmap.put(MainActivity.sContext.getString(R.string.infoSPLastRestartMsg),"0A0B0C0D0E0F10111213");
+            listmap.put(MainActivity.sContext.getString(R.string.infoSPFatalErrorMsg),"1415161718191A200000");
         }else {
             if((index != null) && (value != "")){
                 listmap.put(index,value);

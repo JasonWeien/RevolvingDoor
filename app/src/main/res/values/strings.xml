@@ -137,6 +137,7 @@
     <string name="infoSPActualTemperatureMax">本次曾经使用的温度最大值</string>
     <string name="infoSPTemperature">当前系统温度</string>
     <string name="infoPCLastErrorCode">当前报警代码</string>
+
     <string name="infoPCLastTenErrorCode">最近10次报警代码</string>
     <string name="infoSPLastRestartMsg">最近10次系统复位原因</string>
     <string name="infoSPFatalErrorMsg">严重错误信息</string>
@@ -152,4 +153,32 @@
 <!--    自动门报警代码-->
 <!--    <string name="infoErrorCode"-->
 
+    <string name="errorCode00Describe">没报警代(默认）</string>
+    <string name="errorCode01Describe">恢复出厂设置</string>
+    <string name="errorCode02Describe">重启</string>
+    <string name="errorCode03Describe">市电过低</string>
+    <string name="errorCode04Describe">开门夹人</string>
+    <string name="errorCode05Describe">关门夹人</string>
+    <string name="errorCode06Describe">控制器超温报警</string>
+    <string name="errorCode07Describe">电锁动作异常</string>
+    <string name="errorCode08Describe">控制器温升超警戒</string>
+    <string name="errorCode09Describe">电机超温报警</string>
+    <string name="errorCode0ADescribe">电机驱动过载</string>
+    <string name="errorCode0BDescribe">电机霍尔传感器故障</string>
+    <string name="errorCode0CDescribe">未找到定位信号</string>
+    <string name="errorCode0DDescribe">无刷电机卡死摇动电机</string>
+    <string name="errorCode0EDescribe">CAN总线通讯错误</string>
+    <string name="errorCode0FDescribe">电机接触不良</string>
+    <string name="errorCode10Describe">控制器驱动故障</string>
+    <string name="errorCode11Describe">试用期结束</string>
+    <string name="errorCode12Describe">控制器驱动硬件故障</string>
+    <string name="errorCode13Describe">控制软件升级</string>
+    <string name="errorCode14Describe">电机编码器反向复位</string>
+    <string name="errorCode15Describe">行程错误复位</string>
+    <string name="errorCode16Describe">电机编码器故障</string>
+    <string name="errorCode17Describe">人工命令复位</string>
+    <string name="errorCode18Describe">控制器DIP位拨动复位</string>
+    <string name="errorCode19Describe">电锁闭锁失败</string>
+    <string name="errorCode1ADescribe">电锁被撬开</string>
+    <string name="errorCode20Describe">使能被禁止</string>
 </resources>
