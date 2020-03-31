@@ -99,8 +99,11 @@ public class PageHome {
     }
     // 初始化查询
     private void initStatus(){
-        SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdRevolvingInit(
-                mContext.getString(R.string.addRevolvingDoor)));
+//        SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdRevolvingInit(
+//                mContext.getString(R.string.addRevolvingDoor)));
+        //查询运行模式
+        SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdRevolvingDoorMode(
+                mContext.getString(R.string.addRevolvingDoor),""));
         //延迟查询是否已经完成查询；
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {

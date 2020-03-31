@@ -2,7 +2,6 @@ package lafaya.revolvingdoor.view;
 
 import android.app.Activity;
 import android.content.Context;
-//import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -47,12 +46,9 @@ public class PageParameter {
     private Activity activity;
     private Handler handler;
 
-    //
     private RelativeLayout activity_parameter;
-
     //
     private Button button_parRevolving, button_parSliding,button_parWingL,button_parWingR;
-
     private LinearLayout layout_parameter_revolvingdoor,layout_parameter_sliding, layout_parameter_wingl, layout_parameter_wingr;
 
     //
@@ -81,9 +77,6 @@ public class PageParameter {
     private int dialog_maxvalue = 1;
     private int dialog_minvalue = 0;
     private float dialog_step = 1.0f;
-
-    //
-
     //
     private Timer mTimer = null;
     private TimerTask mTimerTask = null;
@@ -836,7 +829,7 @@ public class PageParameter {
     // pos 0~6 , other
     // pos 7~15 , length
     // pos 16~23 , driver
-    // 旋转门的位置显示
+    // 旋转门的参数显示
     public void gridViewRDParaSelected(int pos, HashMap<String, Integer> listTemp){
         String name = "";
         int maxv = 0;
@@ -844,180 +837,96 @@ public class PageParameter {
         int nowv = 0;
         float step = 0;
         switch (pos){
-            case 0://运行速度
-                name = mContext.getString(R.string.parRDSpeedNormal);
+            case 0://高速运行速度
+                name = mContext.getString(R.string.parRDSpeedHigh);
                 maxv = 1000;
+                minv = 10;
+                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedHigh));
+                step = 10;
+                break;
+            case 1://中速运行速度
+                name = mContext.getString(R.string.parRDSpeedMid);
+                maxv = 600;
+                minv = 10;
+                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedMid));
+                step = 10;
+                break;
+            case 2://低速运行速度
+                name = mContext.getString(R.string.parRDSpeedLow);
+                maxv = 400;
+                minv = 10;
+                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedLow));
+                step = 10;
+                break;
+            case 3://危险区域宽度
+                name = mContext.getString(R.string.parRDRiskWidth);
+                maxv = 1500;
                 minv = 100;
-                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedNormal));
+                nowv = listTemp.get(mContext.getString(R.string.parRDRiskWidth));
                 step = 10;
                 break;
-            case 1://冬季/夏季速度
-                name = mContext.getString(R.string.parRDSpeedW_S);
-                maxv = 1000;
-                minv = 100;
-                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedW_S));
-                step = 10;
-                break;
-            case 2://怠速速度
-                name = mContext.getString(R.string.parRDSpeedIdle);
-                maxv = 1000;
-                minv = 50;
-                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedIdle));
-                step = 10;
-                break;
-            case 3://残障速度
-                name = mContext.getString(R.string.parRDSpeedSlow);
-                maxv = 500;
-                minv = 30;
-                nowv = listTemp.get(mContext.getString(R.string.parRDSpeedSlow));
-                step = 10;
-                break;
-            case 4://最大允许运行电流
-                name = mContext.getString(R.string.parRDCurrentLimitMax);
+            case 4://危险区域起点
+                name = mContext.getString(R.string.parRDRiskOrigin);
                 maxv = 30000;
-                minv = 1000;
-                nowv = listTemp.get(mContext.getString(R.string.parRDCurrentLimitMax));
-                step = 100;
+                minv = 0;
+                nowv = listTemp.get(mContext.getString(R.string.parRDRiskOrigin));
+                step = 10;
                 break;
-            case 5://运行电流学习
-                name = mContext.getString(R.string.parRDCurrentRunningLearn);
-                maxv = 30000;
-                minv = 100;
-                nowv = listTemp.get(mContext.getString(R.string.parRDCurrentRunningLearn));
-                step = 100;
-                break;
-            case 6://运行阻力门槛
-                name = mContext.getString(R.string.parRDDragRunningThreshold);
-                maxv = 30000;
-                minv = 100;
-                nowv = listTemp.get(mContext.getString(R.string.parRDDragRunningThreshold));
-                step = 100;
-                break;
-            case 7://锁门位置
+            case 5://夜间锁门位置
                 name = mContext.getString(R.string.parRDPositionLock);
+                maxv = 30000;
+                minv = 100;
+                nowv = listTemp.get(mContext.getString(R.string.parRDPositionLock));
+                step = 100;
+                break;
+            case 6://冬季停机位置
+                name = mContext.getString(R.string.parRDPositionStopWinter);
+                maxv = 30000;
+                minv = 100;
+                nowv = listTemp.get(mContext.getString(R.string.parRDPositionStopWinter));
+                step = 100;
+                break;
+            case 7://夏季停机位置
+                name = mContext.getString(R.string.parRDPositionStopSummer);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDPositionStopSummer));
                 step = 10;
                 break;
             case 8://平滑门停机位置
-                name = mContext.getString(R.string.parRDPositionSlidingStop);
+                name = mContext.getString(R.string.parRDPositionStopSliding);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDPositionStopSliding));
                 step = 10;
                 break;
-            case 9://冬季停机位置
-                name = mContext.getString(R.string.parRDPositionWinterStop);
+            case 9://怠速停转角度
+                name = mContext.getString(R.string.parRDAngleIdling);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDAngleIdling));
                 step = 10;
                 break;
-            case 10://夏季停机位置
-                name = mContext.getString(R.string.parRDPositionSummerStop);
+            case 10://冬季停转角度
+                name = mContext.getString(R.string.parRDAngleWinter);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDAngleWinter));
                 step = 10;
                 break;
-            case 11://危险区域1起点位置
-                name = mContext.getString(R.string.parRDPositionRisk1Start);
+            case 11://夏季停转角度
+                name = mContext.getString(R.string.parRDAngleSummer);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDAngleSummer));
                 step = 10;
                 break;
-            case 12://危险区域1终点位置1
-                name = mContext.getString(R.string.parRDPositionRisk1End1);
+            case 12://残障停转角度
+                name = mContext.getString(R.string.parRDAngleDisability);
                 maxv = 10000;
                 minv = 100;
-                nowv = listTemp.get(name);
+                nowv = listTemp.get(mContext.getString(R.string.parRDAngleDisability));
                 step = 10;
-                break;
-            case 13://危险区域1终点位置2
-                name = mContext.getString(R.string.parRDPositionRisk1End2);
-                maxv = 10000;
-                minv = 100;
-                nowv = listTemp.get(name);
-                step = 10;
-                break;
-            case 14://危险区域2起点位置
-                name = mContext.getString(R.string.parRDPositionRisk2Start);
-                maxv = 10000;
-                minv = 100;
-                nowv = listTemp.get(name);
-                step = 10;
-                break;
-            case 15://危险区域2终点位置1
-                name = mContext.getString(R.string.parRDPositionRisk2End1);
-                maxv = 10000;
-                minv = 100;
-                nowv = listTemp.get(name);
-                step = 10;
-                break;
-            case 16://危险区域2终点位置2
-                name = mContext.getString(R.string.parRDPositionRisk2End2);
-                maxv = 10000;
-                minv = 100;
-                nowv = listTemp.get(name);
-                step = 10;
-                break;
-            case 17://驱动器Can波特率
-                name = mContext.getString(R.string.parRDDriverCanBaudRate);
-                maxv = 1024;
-                minv = 1;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 18://驱动器控制模式
-                name = mContext.getString(R.string.parRDDriverControlMode);
-                maxv = 1;
-                minv = 0;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 19://驱动器加速命令
-                name = mContext.getString(R.string.parRDDriverSpeedUp);
-                maxv = 1;
-                minv = 0;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 20://驱动器减速命令
-                name = mContext.getString(R.string.parRDDriverBraking);
-                maxv = 1;
-                minv = 0;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 21://驱动器急停命令
-                name = mContext.getString(R.string.parRDDriverEmergencyBraking);
-                maxv = 1;
-                minv = 0;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 22://驱动器PID速度控制
-                name = mContext.getString(R.string.parRDDriverPIDSpeed);
-                maxv = 100;
-                minv = 1;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 23://驱动器PID子速度控制
-                name = mContext.getString(R.string.parRDDriverPIDSubSPeed);
-                maxv = 100;
-                minv = 1;
-                nowv = listTemp.get(name);
-                step = 1;
-                break;
-            case 24://驱动器PID电流控制
-                name = mContext.getString(R.string.parRDDriverPIDCurrent);
-                maxv = 100;
-                minv = 1;
-                nowv = listTemp.get(name);
-                step = 1;
                 break;
             default:
                 return;

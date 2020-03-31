@@ -82,91 +82,58 @@ public class ParameterUpdate{
     public List<HashMap<String, Object>> listParameterRD(HashMap<String, Integer> listmap){
         List<HashMap<String, Object>> list = new ArrayList<>();
         // other
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedNormal),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedNormal)),"mm/s"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedW_S),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedW_S)),"mm/s"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedIdle),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedIdle)),"mm/s"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedSlow),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedSlow)),"mm/s"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDCurrentLimitMax),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDCurrentLimitMax)),"mA"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDCurrentRunningLearn),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDCurrentRunningLearn)),"mA"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDragRunningThreshold),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDragRunningThreshold)),"mN"));
-        // length
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedHigh),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedHigh)),"mm/s"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedMid),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedMid)),"mm/s"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDSpeedLow),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDSpeedLow)),"mm/s"));
+
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDRiskWidth),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDRiskWidth)),"mm"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDRiskOrigin),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDRiskOrigin)),"脉冲"));
+
         list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionLock),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionLock)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionSlidingStop),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionSlidingStop)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionWinterStop),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionWinterStop)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1Start),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk1Start)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1End1),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk1End1)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk2Start)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk2End1)),"mm"));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionRisk2End2)),"mm"));
-        //driver
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverCanBaudRate),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverCanBaudRate))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverControlMode),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverControlMode))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverSpeedUp),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverSpeedUp))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverBraking),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverBraking))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverEmergencyBraking),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverEmergencyBraking))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverPIDSpeed),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverPIDSpeed))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverPIDSubSPeed),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverPIDSubSPeed))," "));
-        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDDriverPIDCurrent),
-                listmap.get(MainActivity.sContext.getString(R.string.parRDDriverPIDCurrent))," "));
+                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionLock)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionStopWinter),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionStopWinter)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionStopSummer),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionStopSummer)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDPositionStopSliding),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDPositionStopSliding)),"度"));
+
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDAngleIdling),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDAngleIdling)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDAngleWinter),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDAngleWinter)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDAngleSummer),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDAngleSummer)),"度"));
+        list.add(GridUtils.instance().getGridViewValueAndUnit(MainActivity.sContext.getString(R.string.parRDAngleDisability),
+                listmap.get(MainActivity.sContext.getString(R.string.parRDAngleDisability)),"度"));
 
         return list;
     }
     public HashMap<String, Integer> paraRDUpdate(HashMap<String, Integer> listmap,String index, int value){
         if(listmap == null){
             listmap = new HashMap<>();
-            // other
-            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedNormal),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedW_S),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedIdle),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedSlow),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDCurrentLimitMax),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDCurrentRunningLearn),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDragRunningThreshold),0);
-            // length
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionLock),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionSlidingStop),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionWinterStop),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionSummerStop),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk1Start),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk1End1),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk1End2),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk2Start),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk2End1),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionRisk2End2),0);
-            //driver
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverCanBaudRate),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverControlMode),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverSpeedUp),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverBraking),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverEmergencyBraking),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverPIDSpeed),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverPIDSubSPeed),0);
-            listmap.put(MainActivity.sContext.getString(R.string.parRDDriverPIDCurrent),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedHigh),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedMid),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDSpeedLow),0);
 
+            listmap.put(MainActivity.sContext.getString(R.string.parRDRiskWidth),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDRiskOrigin),0);
+
+            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionLock),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionStopWinter),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionLock),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionStopSummer),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDPositionStopSliding),0);
+
+            listmap.put(MainActivity.sContext.getString(R.string.parRDAngleIdling),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDAngleWinter),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDAngleSummer),0);
+            listmap.put(MainActivity.sContext.getString(R.string.parRDAngleDisability),0);
         }else {
             if(index != null){
                 listmap.put(index,value);
@@ -653,29 +620,48 @@ public class ParameterUpdate{
 
     // 参数查询、设置命令发送
     //旋转门专用
-    private void setParaRDOther(int index,String address, String value){
+    public void setRDParameter(int index, String value){
+        String address = MainActivity.sContext.getString(R.string.addRevolvingDoor);
         String tempCommand = null;
         switch (index){
-            case 0: //运行速度
-                tempCommand = RS485SendCommand.instance().CmdRDSpeedNormal(address,value);
+            case 0: //高速运行速度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingSpeedHigh(address,value);
                 break;
-            case 1://冬季/夏季速度
-                tempCommand = RS485SendCommand.instance().CmdRDSpeedSummer(address,value);
+            case 1://中速运行速度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingSpeedMid(address,value);
                 break;
-            case 2://怠速速度
-                tempCommand = RS485SendCommand.instance().CmdRDSpeedIdling(address,value);
+            case 2://低速运行速度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingSpeedLow(address,value);
                 break;
-            case 3://残障速度
-                tempCommand = RS485SendCommand.instance().CmdRDDisabledSpeed(address,value);
+            case 3://危险区域宽度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingRiskWidth(address,value);
                 break;
-            case 4://最大允许运行电流
-                tempCommand = RS485SendCommand.instance().CmdRDCurrentLimitMax(address,value);
+            case 4://危险区域起点
+                tempCommand = RS485SendCommand.instance().CmdRevolvingRiskOrigin(address,value);
                 break;
-            case 5://运行电流学习
-                tempCommand = RS485SendCommand.instance().CmdRDCurrentLearn(address,value);
+            case 5://夜间锁门位置
+                tempCommand = RS485SendCommand.instance().CmdRevolvingPositionLock(address,value);
                 break;
-            case 6://运行阻力门槛
-                tempCommand = RS485SendCommand.instance().CmdRDResistanceThreshold(address,value);
+            case 6://冬季停机位置
+                tempCommand = RS485SendCommand.instance().CmdRevolvingPositionStopWinter(address,value);
+                break;
+            case 7://夏季停机位置
+                tempCommand = RS485SendCommand.instance().CmdRevolvingPositionStopSummer(address,value);
+                break;
+            case 8://平滑门停机位置
+                tempCommand = RS485SendCommand.instance().CmdRevolvingPositionStopSliding(address,value);
+                break;
+            case 9://怠速停转角度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingAngleIdling(address,value);
+                break;
+            case 10://冬季停转角度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingAngleWinter(address,value);
+                break;
+            case 11://夏季停转角度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingAngleSummer(address,value);
+                break;
+            case 12://残联停转角度
+                tempCommand = RS485SendCommand.instance().CmdRevolvingAngleDisability(address,value);
                 break;
             default:
                 break;
@@ -684,93 +670,6 @@ public class ParameterUpdate{
             return;
         }
         SerialPortThread.instance().sendMsg(tempCommand);
-    }
-    private void setParaRDLength(int index,String address, String value){
-        String tempCommand = null;
-        switch (index){
-            case 0: //锁门位置
-                tempCommand = RS485SendCommand.instance().CmdRDLockPosition(address,value);
-                break;
-            case 1://平滑门停机位置
-                tempCommand = RS485SendCommand.instance().CmdRDSlidingDoorPosition(address,value);
-                break;
-            case 2://冬季停机位置
-                tempCommand = RS485SendCommand.instance().CmdRDWinterPostion(address,value);
-                break;
-            case 3://夏季停机位置
-                tempCommand = RS485SendCommand.instance().CmdRDSummerPosition(address,value);
-                break;
-            case 4://危险区域1起点位置
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone1Start(address,value);
-                break;
-            case 5://危险区域1终点位置1
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone1End1(address,value);
-                break;
-            case 6://危险区域1终点位置2
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone1End2(address,value);
-                break;
-            case 7://危险区域2起点位置
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone2Start(address,value);
-                break;
-            case 8://危险区域2终点位置1
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone2End1(address,value);
-                break;
-            case 9://危险区域2终点位置2
-                tempCommand = RS485SendCommand.instance().CmdRDRiskZone2End2(address,value);
-                break;
-            default:
-                break;
-        }
-        if(tempCommand == null){
-            return;
-        }
-        SerialPortThread.instance().sendMsg(tempCommand);
-    }
-    private void setParaRDDriver(int index,String address, String value){
-        String tempCommand = null;
-        switch (index){
-            case 0: //驱动器Can波特率
-                tempCommand = RS485SendCommand.instance().CmdRDDriverBaudRate(address,value);
-                break;
-            case 1://驱动器控制模式
-                tempCommand = RS485SendCommand.instance().CmdRDDriverControlMode(address,value);
-                break;
-            case 2://驱动器加速命令
-                tempCommand = RS485SendCommand.instance().CmdRDDriverSpeedUp(address,value);
-                break;
-            case 3://驱动器减速命令
-                tempCommand = RS485SendCommand.instance().CmdRDDriverSpeedDown(address,value);
-                break;
-            case 4://驱动器急停命令
-                tempCommand = RS485SendCommand.instance().CmdRDDriverSpeedBreak(address,value);
-                break;
-            case 5://驱动器PID速度控制
-                tempCommand = RS485SendCommand.instance().CmdRDDriverPIDMainSpeed(address,value);
-                break;
-            case 6://驱动器PID子速度控制
-                tempCommand = RS485SendCommand.instance().CmdRDDriverPIDSubSpeed(address,value);
-                break;
-            case 7://驱动器PID电流控制
-                tempCommand = RS485SendCommand.instance().CmdRDDriverPIDCurrent(address,value);
-                break;
-            default:
-                break;
-        }
-        if(tempCommand == null){
-            return;
-        }
-        SerialPortThread.instance().sendMsg(tempCommand);
-    }
-
-    public void setRDParameter(int pos, String value){
-        // 7 + 9 + 8
-        if(pos < 7){
-            setParaRDOther(pos,MainActivity.sContext.getString(R.string.addRevolvingDoor),value);
-        }else if(pos < 16){
-            setParaRDLength(pos-7,MainActivity.sContext.getString(R.string.addRevolvingDoor),value);
-        }else {
-            setParaRDDriver(pos-16,MainActivity.sContext.getString(R.string.addRevolvingDoor),value);
-        }
     }
 
     //其它门用

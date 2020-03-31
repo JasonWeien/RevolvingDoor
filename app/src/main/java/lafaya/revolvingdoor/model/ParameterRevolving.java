@@ -3,7 +3,6 @@ package lafaya.revolvingdoor.model;
 import android.app.Activity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.SimpleAdapter;
 
 import java.util.HashMap;

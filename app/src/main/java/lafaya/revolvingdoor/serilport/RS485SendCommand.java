@@ -974,14 +974,16 @@ public class RS485SendCommand {
 
 
     //---------------------------------------------------------------------------------------------
-    //旋转自动门运行模式查询，发送：0x8B00
-    public String CmdRevolvingInit(String address){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDInit);
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
+//    //旋转自动门运行模式查询，发送：0x8B00
+//    public String CmdRevolvingInit(String address){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDInit);
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
 
-    //旋转自动门运行模式查询，发送：0x8B02
+//    R/W，可读可写参数
+
+    //旋转自动门运行模式查询，发送：0x8B01
     public String CmdRevolvingDoorMode(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
                 address + mContext.getString(R.string.cmdRDMode);
@@ -993,284 +995,482 @@ public class RS485SendCommand {
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
 
-    //运行速度
-    public String CmdRDSpeedNormal(String address,String setPara){
+    //旋转自动门学习状态查询/设置，发送：0x8B02  ：
+    public String CmdRevolvingLearningState(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDSpeedNormal);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDLearningState);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
-    //冬季/夏季速度
-    public String CmdRDSpeedSummer(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDSpeedSummer);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
-    //怠速速度
-    public String CmdRDSpeedIdling(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDSpeedIdling);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
 
-    //残障速度
-    public String CmdRDDisabledSpeed(String address,String setPara){
+    //旋转自动门危险区域宽度值 ，发送：0x8B03  ：
+    public String CmdRevolvingRiskWidth(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDisabledSpeed);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDRiskWidth);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //最大允许运行电流
-    public String CmdRDCurrentLimitMax(String address,String setPara){
+
+    //旋转自动门危险区域起点位置 ，发送：0x8B04  ：
+    public String CmdRevolvingRiskOrigin(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDCurrentLimitMax);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDRiskOrigin);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //运行电流学习
-    public String CmdRDCurrentLearn(String address,String setPara){
+
+    //旋转自动门夜间锁门位置 ，发送：0x8B05  ：
+    public String CmdRevolvingPositionLock(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDCurrentLearn);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDPositionLock);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //运行阻力门槛
-    public String CmdRDResistanceThreshold(String address,String setPara){
+
+    //旋转自动门冬季停机位置 ，发送：0x8B06  ：
+    public String CmdRevolvingPositionStopWinter(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDResistanceThreshold);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDPositionStopWinter);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //=====
-    //锁门位置
-    public String CmdRDLockPosition(String address,String setPara){
+
+    //旋转自动门夏季停机位置 ，发送：0x8B07  ：
+    public String CmdRevolvingPositionStopSummer(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDLockPosition);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDPositionStopSummer);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //平滑门停机位置
-    public String CmdRDSlidingDoorPosition(String address,String setPara){
+
+    //旋转自动门平滑门停机位置 ，发送：0x8B08  ：
+    public String CmdRevolvingPositionStopSliding(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDSlidingDoorPosition);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDPositionStopSliding);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //冬季停机位置
-    public String CmdRDWinterPostion(String address,String setPara){
+
+    //旋转自动门怠速模式运转角度 ，发送：0x8B09  ：
+    public String CmdRevolvingAngleIdling(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDWinterPostion);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDAngleIdling);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //夏季停机位置
-    public String CmdRDSummerPosition(String address,String setPara){
+
+    //旋转自动门冬季模式运转角度 ，发送：0x8B0A  ：
+    public String CmdRevolvingAngleWinter(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDSummerPosition);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDAngleWinter);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域1起点位置
-    public String CmdRDRiskZone1Start(String address,String setPara){
+
+    //旋转自动门夏季模式运转角度 ，发送：0x8B0B  ：
+    public String CmdRevolvingAngleSummer(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone1Start);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDAngleSummer);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域1终点位置1
-    public String CmdRDRiskZone1End1(String address,String setPara){
+
+    //旋转自动门残障模式运转角度 ，发送：0x8B0C  ：
+    public String CmdRevolvingAngleDisability(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone1End1);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDAngleDisability);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域1终点位置2
-    public String CmdRDRiskZone1End2(String address,String setPara){
+
+    //旋转自动门高速运行速度 ，发送：0x8B0D  ：
+    public String CmdRevolvingSpeedHigh(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone1End2);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDSpeedHigh);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域2起点位置
-    public String CmdRDRiskZone2Start(String address,String setPara){
+
+    //旋转自动门中速运行速度 ，发送：0x8B0E  ：
+    public String CmdRevolvingSpeedMid(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone2Start);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDSpeedMid);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域2终点位置1
-    public String CmdRDRiskZone2End1(String address,String setPara){
+
+    //旋转自动门低速运行速度 ，发送：0x8B0F  ：
+    public String CmdRevolvingSpeedLow(String address,String setPara){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone2End1);
-        // 查询命令
+                address + mContext.getString(R.string.cmdRDSpeedLow);
+        // 查询命令，不含参数
         if(!setPara.equals("")) {
-            //设置命令
+            //设置命令，提供需设置的参数
             command += setPara;
         }
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //危险区域2终点位置2
-    public String CmdRDRiskZone2End2(String address,String setPara){
+
+
+//    R:可读参数
+    public String CmdRevolvingSoftVersion(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDRiskZone2End2);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
+                address + mContext.getString(R.string.cmdRDSoftVersion);
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //=======
-    //驱动器Can波特率
-    public String CmdRDDriverBaudRate(String address,String setPara){
+    public String CmdRevolvingTotalTrip(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverBaudRate);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
+                address + mContext.getString(R.string.cmdRDTotalTrip);
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //驱动器控制模式
-    public String CmdRDDriverControlMode(String address,String setPara){
+    public String CmdRevolvingPortState(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverControlMode);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
+                address + mContext.getString(R.string.cmdRDStatePort);
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //驱动器加速命令
-    public String CmdRDDriverSpeedUp(String address,String setPara){
+    public String CmdRevolvingRunningState(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverSpeedUp);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
+                address + mContext.getString(R.string.cmdRDStateRunning);
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //驱动器减速命令
-    public String CmdRDDriverSpeedDown(String address,String setPara){
+    public String CmdRevolvingSystemState(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverSpeedDown);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
+                address + mContext.getString(R.string.cmdRDStateSystem);
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
-    //驱动器急停命令
-    public String CmdRDDriverSpeedBreak(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverSpeedBreak);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
-    //驱动器PID速度控制
-    public String CmdRDDriverPIDMainSpeed(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverPIDMainSpeed);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
-    //驱动器PID子速度控制
-    public String CmdRDDriverPIDSubSpeed(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverPIDSubSpeed);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
-    //驱动器PID电流控制
-    public String CmdRDDriverPIDCurrent(String address,String setPara){
-        String command = mContext.getString(R.string.addProgramSwitch) +
-                address + mContext.getString(R.string.cmdRDDriverPIDCurrent);
-        // 查询命令
-        if(!setPara.equals("")) {
-            //设置命令
-            command += setPara;
-        }
-        return("~" + command + CreatCheckCode(command)+ "\r");
-    }
+
+
+
+//    //运行速度
+//    public String CmdRDSpeedNormal(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDSpeedNormal);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //冬季/夏季速度
+//    public String CmdRDSpeedSummer(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDSpeedSummer);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //怠速速度
+//    public String CmdRDSpeedIdling(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDSpeedIdling);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//
+//    //残障速度
+//    public String CmdRDDisabledSpeed(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDisabledSpeed);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //最大允许运行电流
+//    public String CmdRDCurrentLimitMax(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDCurrentLimitMax);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //运行电流学习
+//    public String CmdRDCurrentLearn(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDCurrentLearn);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //运行阻力门槛
+//    public String CmdRDResistanceThreshold(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDResistanceThreshold);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //=====
+//    //锁门位置
+//    public String CmdRDLockPosition(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDLockPosition);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //平滑门停机位置
+//    public String CmdRDSlidingDoorPosition(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDSlidingDoorPosition);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //冬季停机位置
+//    public String CmdRDWinterPostion(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDWinterPostion);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //夏季停机位置
+//    public String CmdRDSummerPosition(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDSummerPosition);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域1起点位置
+//    public String CmdRDRiskZone1Start(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone1Start);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域1终点位置1
+//    public String CmdRDRiskZone1End1(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone1End1);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域1终点位置2
+//    public String CmdRDRiskZone1End2(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone1End2);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域2起点位置
+//    public String CmdRDRiskZone2Start(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone2Start);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域2终点位置1
+//    public String CmdRDRiskZone2End1(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone2End1);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //危险区域2终点位置2
+//    public String CmdRDRiskZone2End2(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDRiskZone2End2);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //=======
+//    //驱动器Can波特率
+//    public String CmdRDDriverBaudRate(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverBaudRate);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器控制模式
+//    public String CmdRDDriverControlMode(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverControlMode);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器加速命令
+//    public String CmdRDDriverSpeedUp(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverSpeedUp);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器减速命令
+//    public String CmdRDDriverSpeedDown(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverSpeedDown);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器急停命令
+//    public String CmdRDDriverSpeedBreak(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverSpeedBreak);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器PID速度控制
+//    public String CmdRDDriverPIDMainSpeed(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverPIDMainSpeed);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器PID子速度控制
+//    public String CmdRDDriverPIDSubSpeed(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverPIDSubSpeed);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
+//    //驱动器PID电流控制
+//    public String CmdRDDriverPIDCurrent(String address,String setPara){
+//        String command = mContext.getString(R.string.addProgramSwitch) +
+//                address + mContext.getString(R.string.cmdRDDriverPIDCurrent);
+//        // 查询命令
+//        if(!setPara.equals("")) {
+//            //设置命令
+//            command += setPara;
+//        }
+//        return("~" + command + CreatCheckCode(command)+ "\r");
+//    }
 
 
 

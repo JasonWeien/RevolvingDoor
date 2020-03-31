@@ -139,38 +139,52 @@
 
 
     <!-- 旋转门专用命令字 -->
-    <string name="cmdRDInit">8B00</string>
-    <string name="cmdRDVersion">8B01</string>
-    <string name="cmdRDMode">8B02</string>
-    <string name="cmdRDErrorCode">8B03</string>
-    <string name="cmdRDHistoryErrorCode">8B04</string>
-    <string name="cmdRDSensorMonitor">8B05</string>
-    <string name="cmdRDSelfTesting">8B06</string>
-    <string name="cmdRDRunningStateMonitor">8B07</string>
-    <string name="cmdRDSignalMonitor">8B08</string>
-<!--
-    <string name="cmdRD">8B09</string>
-    <string name="cmdRD">8B0A</string>
-    <string name="cmdRD">8B0B</string>
-    <string name="cmdRD">8B0C</string>
-    <string name="cmdRD">8B0D</string>
-    <string name="cmdRD">8B0E</string>
-    <string name="cmdRD">8B0F</string>
--->
+<!--R/W-->
+    <string name="cmdRDMode">8B01</string>
+    <string name="cmdRDLearningState">8B02</string>
+    <string name="cmdRDRiskWidth">8B03</string>
+    <string name="cmdRDRiskOrigin">8B04</string>
+    <string name="cmdRDPositionLock">8B05</string>
+    <string name="cmdRDPositionStopWinter">8B06</string>
+    <string name="cmdRDPositionStopSummer">8B07</string>
+    <string name="cmdRDPositionStopSliding">8B08</string>
+    <string name="cmdRDAngleIdling">8B09</string>
+    <string name="cmdRDAngleWinter">8B0A</string>
+    <string name="cmdRDAngleSummer">8B0B</string>
+    <string name="cmdRDAngleDisability">8B0C</string>
+    <string name="cmdRDSpeedHigh">8B0D</string>
+    <string name="cmdRDSpeedMid">8B0E</string>
+    <string name="cmdRDSpeedLow">8B0F</string>
 
 
-    <string name="cmdRDTripDistance">8B10</string>
-    <string name="cmdRDLockPosition">8B11</string>
-    <string name="cmdRDSlidingDoorPosition">8B12</string>
-    <string name="cmdRDWinterPostion">8B13</string>
-    <string name="cmdRDSummerPosition">8B14</string>
-    <string name="cmdRDRiskZone1Start">8B15</string>
-    <string name="cmdRDRiskZone1End1">8B16</string>
-    <string name="cmdRDRiskZone1End2">8B17</string>
-    <string name="cmdRDRiskZone2Start">8B18</string>
-    <string name="cmdRDRiskZone2End1">8B19</string>
-    <string name="cmdRDRiskZone2End2">8B1A</string>
-    <string name="cmdRDNowPosition">8B1B</string>
+<!--R-->
+    <string name="cmdRDSoftVersion">8B80</string>
+    <string name="cmdRDTotalTrip">8B81</string>
+<!--    <string name="cmdRDErrorCode">8B81</string>-->
+<!--    <string name="cmdRDErrorState">8B81</string>-->
+
+
+<!--R/monitor-->
+    <string name="cmdRDStatePort">8BE0</string>
+    <string name="cmdRDStateRunning">8BE1</string>
+    <string name="cmdRDStateSystem">8BE2</string>
+
+
+
+
+
+    <!--    <string name="cmdRDTripDistance">8B10</string>-->
+<!--    <string name="cmdRDLockPosition">8B11</string>-->
+<!--    <string name="cmdRDSlidingDoorPosition">8B12</string>-->
+<!--    <string name="cmdRDWinterPostion">8B13</string>-->
+<!--    <string name="cmdRDSummerPosition">8B14</string>-->
+<!--    <string name="cmdRDRiskZone1Start">8B15</string>-->
+<!--    <string name="cmdRDRiskZone1End1">8B16</string>-->
+<!--    <string name="cmdRDRiskZone1End2">8B17</string>-->
+<!--    <string name="cmdRDRiskZone2Start">8B18</string>-->
+<!--    <string name="cmdRDRiskZone2End1">8B19</string>-->
+<!--    <string name="cmdRDRiskZone2End2">8B1A</string>-->
+<!--    <string name="cmdRDNowPosition">8B1B</string>-->
 <!--
     <string name="cmdRD">8B1C</string>
     <string name="cmdRD">8B1D</string>
@@ -178,43 +192,43 @@
     <string name="cmdRD">8B1F</string>
 -->
 
-    <string name="cmdRDSpeedNormal">8B20</string>
-    <string name="cmdRDSpeedIdling">8B21</string>
-    <string name="cmdRDSpeedSummer">8B22</string>
-    <string name="cmdRDRunningSpeed">8B23</string>
-    <string name="cmdRDDisabledSpeed">8B24</string>
+<!--    <string name="cmdRDSpeedNormal">8B20</string>-->
+<!--    <string name="cmdRDSpeedIdling">8B21</string>-->
+<!--    <string name="cmdRDSpeedSummer">8B22</string>-->
+<!--    <string name="cmdRDRunningSpeed">8B23</string>-->
+<!--    <string name="cmdRDDisabledSpeed">8B24</string>-->
 <!--
     <string name="cmdRD">8B25</string>
     <string name="cmdRD">8B26</string>
     <string name="cmdRD">8B27</string>
 -->
-    <string name="cmdRDCurrentLimitMax">8B28</string>
-    <string name="cmdRDCurrentLimit">8B29</string>
-    <string name="cmdRDRunningCurrent">8B2A</string>
-    <string name="cmdRDCurrentLearn">8B2B</string>
-    <string name="cmdRDResistanceThreshold">8B2C</string>
+<!--    <string name="cmdRDCurrentLimitMax">8B28</string>-->
+<!--    <string name="cmdRDCurrentLimit">8B29</string>-->
+<!--    <string name="cmdRDRunningCurrent">8B2A</string>-->
+<!--    <string name="cmdRDCurrentLearn">8B2B</string>-->
+<!--    <string name="cmdRDResistanceThreshold">8B2C</string>-->
 <!--
     <string name="cmdRD">8B2D</string>
     <string name="cmdRD">8B2E</string>
     <string name="cmdRD">8B2F</string>
 -->
 
-    <string name="cmdRDDriverBaudRate">8B50</string>
-    <string name="cmdRDDriverControlMode">8B51</string>
-    <string name="cmdRDDriverSpeedUp">8B52</string>
-    <string name="cmdRDDriverSpeedDown">8B53</string>
-    <string name="cmdRDDriverSpeedBreak">8B54</string>
-    <string name="cmdRDDriverPIDMainSpeed">8B55</string>
-    <string name="cmdRDDriverPIDSubSpeed">8B56</string>
-    <string name="cmdRDDriverPIDCurrent">8B57</string>
-    <string name="cmdRDDriverSaveParameter">8B58</string>
-    <string name="cmdRDDriverOpen">8B59</string>
-    <string name="cmdRDDriverRestart">8B5A</string>
-    <string name="cmdRDDriverSpeedControl">8B5B</string>
-    <string name="cmdRDDriverCurrent">8B5C</string>
-    <string name="cmdRDDriverVoltage">8B5D</string>
-    <string name="cmdRDDriverSpeed">8B5E</string>
-    <string name="cmdRDDriverPosition">8B5F</string>
+<!--    <string name="cmdRDDriverBaudRate">8B50</string>-->
+<!--    <string name="cmdRDDriverControlMode">8B51</string>-->
+<!--    <string name="cmdRDDriverSpeedUp">8B52</string>-->
+<!--    <string name="cmdRDDriverSpeedDown">8B53</string>-->
+<!--    <string name="cmdRDDriverSpeedBreak">8B54</string>-->
+<!--    <string name="cmdRDDriverPIDMainSpeed">8B55</string>-->
+<!--    <string name="cmdRDDriverPIDSubSpeed">8B56</string>-->
+<!--    <string name="cmdRDDriverPIDCurrent">8B57</string>-->
+<!--    <string name="cmdRDDriverSaveParameter">8B58</string>-->
+<!--    <string name="cmdRDDriverOpen">8B59</string>-->
+<!--    <string name="cmdRDDriverRestart">8B5A</string>-->
+<!--    <string name="cmdRDDriverSpeedControl">8B5B</string>-->
+<!--    <string name="cmdRDDriverCurrent">8B5C</string>-->
+<!--    <string name="cmdRDDriverVoltage">8B5D</string>-->
+<!--    <string name="cmdRDDriverSpeed">8B5E</string>-->
+<!--    <string name="cmdRDDriverPosition">8B5F</string>-->
 
 
     <!-- 上位机命令-->

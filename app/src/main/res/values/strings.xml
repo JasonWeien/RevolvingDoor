@@ -29,39 +29,32 @@
     <string name="RDErrorCode01">01</string>
     <string name="RDErrorCode01Describe">异常警告：开门异常，请您检测门扇是否被挡住！</string>
 
-
+    <string name="parRDLearningState">旋转门学习状态</string>
     <!--  旋转门参数名称 -->
-    <string name="parRDPositionLock">锁门位置</string>
-    <string name="parRDPositionSlidingStop">平滑门停机位置</string>
-    <string name="parRDPositionWinterStop">冬季停机位置</string>
-    <string name="parRDPositionSummerStop">夏季停机位置</string>
-    <string name="parRDPositionRisk1Start">危险区域1起点位置</string>
-    <string name="parRDPositionRisk1End1">危险区域1终点位置1</string>
-    <string name="parRDPositionRisk1End2">危险区域1终点位置2</string>
-    <string name="parRDPositionRisk2Start">危险区域2起点位置</string>
-    <string name="parRDPositionRisk2End1">危险区域2终点位置1</string>
-    <string name="parRDPositionRisk2End2">危险区域2终点位置2</string>
 
-    <string name="parRDSpeedNormal">运行速度</string>
-    <string name="parRDSpeedW_S">冬季/夏季速度</string>
-    <string name="parRDSpeedIdle">怠速速度</string>
-    <string name="parRDSpeedSlow">残障速度</string>
+    <string name="parRDPositionLock">夜间锁门位置</string>
+    <string name="parRDPositionStopSliding">平滑门停机位置</string>
+    <string name="parRDPositionStopWinter">冬季停机位置</string>
+    <string name="parRDPositionStopSummer">夏季停机位置</string>
 
-    <string name="parRDCurrentLimitMax">最大允许运行电流</string>
-    <string name="parRDCurrentRunningLearn">运行电流学习</string>
+    <string name="parRDRiskWidth">危险区域宽度</string>
+    <string name="parRDRiskOrigin">危险区域起点</string>
 
-    <string name="parRDDragRunningThreshold">运行阻力门槛</string>
+    <string name="parRDAngleIdling">怠速停转角度</string>
+    <string name="parRDAngleWinter">冬季停转角度</string>
+    <string name="parRDAngleSummer">夏季停转角度</string>
+    <string name="parRDAngleDisability">残联停转角度</string>
 
-    <string name="parRDDriverCanBaudRate">驱动器Can波特率</string>
-    <string name="parRDDriverControlMode">驱动器控制模式</string>
-    <string name="parRDDriverSpeedUp">驱动器加速命令</string>
-    <string name="parRDDriverBraking">驱动器减速命令</string>
-    <string name="parRDDriverEmergencyBraking">驱动器急停命令</string>
-    <string name="parRDDriverPIDSpeed">驱动器PID速度控制</string>
-    <string name="parRDDriverPIDSubSPeed">驱动器PID子速度控制</string>
-    <string name="parRDDriverPIDCurrent">驱动器PID电流控制</string>
+    <string name="parRDSpeedHigh">高速运行速度</string>
+    <string name="parRDSpeedMid">低速运行速度</string>
+    <string name="parRDSpeedLow">中速运行速度</string>
 
+    <string name="parRDSoftVersion">软件版本号</string>
+    <string name="parRDTotalTrip">总行程位置</string>
 
+    <string name="parRDStatePort">端口状态</string>
+    <string name="parRDStateRunning">运行状态</string>
+    <string name="parRDStateSystem">系统状态</string>
 
 
     <!--  平滑自动门参数名称 -->
