@@ -45,7 +45,7 @@ public class ParameterUpdate{
     private class paraUpdateThread extends Thread {
         @Override
         public void run() {
-            while (true) {
+                while (true) {
                 if (SerialPortThread.instance().isReceiveMsg) {
                     String paraBuffer;
                     SerialPortThread.instance().isReceiveMsg = false;
@@ -972,6 +972,40 @@ public class ParameterUpdate{
         return listmap;
     }
 
+    public List<HashMap<String, Object>> listRDInfoNormal(HashMap<String, String> listmap){
+        List<HashMap<String, Object>> list = new ArrayList<>();
+
+        list.add(GridUtils.instance().getGridViewString(MainActivity.sContext.getString(R.string.infoRDSoftVersion),
+                listmap.get(MainActivity.sContext.getString(R.string.infoRDSoftVersion))));
+        list.add(GridUtils.instance().getGridViewString(MainActivity.sContext.getString(R.string.infoRDTotalTrip),
+                listmap.get(MainActivity.sContext.getString(R.string.infoRDTotalTrip))));
+//        list.add(GridUtils.instance().getGridViewString(MainActivity.sContext.getString(R.string.infoRDStatePort),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoRDStatePort))));
+//        list.add(GridUtils.instance().getGridViewString(MainActivity.sContext.getString(R.string.infoRDStateRunning),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoRDStateRunning))));
+//        list.add(GridUtils.instance().getGridViewString(MainActivity.sContext.getString(R.string.infoRDStateSystem),
+//                listmap.get(MainActivity.sContext.getString(R.string.infoRDStateSystem))));
+        return list;
+    }
+
+    public HashMap<String, String> paraRDInfoUpdate(HashMap<String, String> listmap,String index, String value){
+        if(listmap == null){
+            listmap = new HashMap<>();
+            listmap.put(MainActivity.sContext.getString(R.string.infoRDSoftVersion),"0");
+            listmap.put(MainActivity.sContext.getString(R.string.infoRDTotalTrip),"0");
+//            listmap.put(MainActivity.sContext.getString(R.string.infoRDStatePort),"0");
+//            listmap.put(MainActivity.sContext.getString(R.string.infoRDStateRunning),"0");
+//            listmap.put(MainActivity.sContext.getString(R.string.infoRDStateSystem),"0");
+        }else {
+            if((index != null) && (value != "")){
+                listmap.put(index,value);
+            }
+        }
+        return listmap;
+    }
+
+
+
 
 
     public List<HashMap<String, Object>> listErrorNormal(HashMap<String, String> listmap){
@@ -1056,6 +1090,5 @@ public class ParameterUpdate{
         SerialPortThread.instance().sendMsg(tempCommand);
 
     }
-
 
 }

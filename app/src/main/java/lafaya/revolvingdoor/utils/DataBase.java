@@ -17,7 +17,7 @@ public class DataBase {
     //参数值
     //旋转门专用参数：距离、驱动、其它
     public HashMap<String, Integer> mapParaRevolving;
-    public HashMap<String, Integer> mapInfoRevolving;
+    public HashMap<String, String> mapInfoRevolving;
 
     public HashMap<String, String> mapErrorRevolving;
 

@@ -101,8 +101,8 @@ public class RS485Protocol {
         if(RXcommand.substring(2,4).equals(mContext.getString(R.string.cmdSPSoftVersion).substring(0,2))){
             CmdReceiveSP(RXcommand);
 
-        }else if(RXcommand.substring(2,4).equals(mContext.getString(R.string.cmdRDVersion).substring(0,2))){
-            CmdReceiveRD(RXcommand);
+        }else if(RXcommand.substring(2,4).equals("8B")){
+            CmdReceiveRD(RXcommand.substring(RXcommand.indexOf("8B")));
         }else {//短命令字
             CmdReceiveOther(RXcommand);
         }
@@ -325,37 +325,16 @@ public class RS485Protocol {
 
     //
     private void CmdReceiveRD(String RXcommand){
-        String cmdTemp = RXcommand.substring(4,6);
-        if(cmdTemp.equals(mContext.getString(R.string.cmdRDInit).substring(2,4))){
-            if(RXcommand.length() > 8) {
-                DataBase.instance().mRunningMode = RXcommand.substring(6, 8);
-                DataBase.instance().mErrorCode = RXcommand.substring(8, 10);
-                if (!PageHome.instance().initFlag) {
-                    PageHome.instance().initFlag = true;
-                }
+        String cmdTemp = RXcommand.substring(0,2);
+//        只读信息
+        if(cmdTemp.equals(mContext.getString(R.string.cmdRDSoftVersion).substring(2,4))){
+            //软件版本号，32bit
+            if(RXcommand.length() >= 10) {
+                DataBase.instance().mapInfoRevolving = ParameterUpdate.instance().paraRDInfoUpdate(DataBase.instance().mapInfoRevolving,
+                        mContext.getString(R.string.cmdRDSoftVersion), RXcommand.substring(2, 10));
             }
         }
-        else if(cmdTemp.equals(mContext.getString(R.string.cmdRDVersion).substring(2,4))){
-            //软件版本号命令
-        }else if(cmdTemp.equals(mContext.getString(R.string.cmdRDMode).substring(2,4))){
-            //运行模式命令 ，容错处理，如果是不带参数查询，不理会。
-            if((RXcommand.length() > 6) && (Integer.parseInt(RXcommand.substring(6,8)) <=
-                    Integer.parseInt(mContext.getString(R.string.RDModeManual))) &&  (Integer.parseInt(RXcommand.substring(6,8)) >=
-                    Integer.parseInt(mContext.getString(R.string.RDModeNormal)))){
-                DataBase.instance().mRunningMode = RXcommand.substring(6, 8);
-                //如果是处于模式修改过程中，进行模式修改后处理。
-                if(PageMode.instance().modeChanging){
-                    PageMode.instance().modeChanged();
-                }
-            }
 
-        }else if(cmdTemp.equals(mContext.getString(R.string.cmdRDErrorCode).substring(2,4))) {
-            //旋转门异常代码 8B03。
-            if ((RXcommand.length() > 6) && (Integer.parseInt(RXcommand.substring(6, 8)) <
-                    Integer.parseInt(mContext.getString(R.string.RDModeManual)))) {
-                DataBase.instance().mRunningMode = RXcommand.substring(6, 8);
-            }
-        }
 
     }
 

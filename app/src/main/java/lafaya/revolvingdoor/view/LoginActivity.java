@@ -41,6 +41,7 @@ public class LoginActivity extends Activity {
 
     private void login(){
         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        //显式启动新的Activity
         startActivity(intent);
         LoginActivity.this.finish();
     }

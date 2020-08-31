@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.provider.ContactsContract;
+//import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -26,6 +26,7 @@ import lafaya.revolvingdoor.utils.DataBase;
 import lafaya.revolvingdoor.utils.SystemUIUtils;
 
 import static lafaya.revolvingdoor.utils.DataBase.DoorType.NON;
+import static lafaya.revolvingdoor.utils.DataBase.DoorType.REVOLVING;
 
 
 
@@ -58,9 +59,12 @@ public class PageMore {
     private LinearLayout layout_info_AutoDoor;
     private AutoCountListView grid_infoAutoDoor;
 
+    private AutoCountListView grid_infoRevolvingDoor;
+
 
     // 错误代码、复位代码、严重异常代码
     private Button button_info_TenResetCode, button_info_TenErrorCode, button_info_BadErrorCode;
+
     private AutoCountListView grid_info_TenResetCode, grid_info_TenErrorCode, grid_info_BadErrorCode;
 
     //========================
@@ -105,6 +109,8 @@ public class PageMore {
 
         grid_infoAutoDoor = activity.findViewById(R.id.grid_infoAutoDoor);
 
+        grid_infoRevolvingDoor = activity.findViewById(R.id.grid_infoRevolvingDoor);
+
 
         //==============================================================================
         button_info_TenErrorCode = activity.findViewById(R.id.button_info_TenErrorCode);
@@ -117,7 +123,8 @@ public class PageMore {
 
 
         // 初始化各信息参数
-        DataBase.instance().mapInfoRevolving = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoRevolving,null,0);
+        DataBase.instance().mapInfoRevolving = ParameterUpdate.instance().paraRDInfoUpdate(DataBase.instance().mapInfoRevolving,null,"");
+
         DataBase.instance().mapInfoSliding = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoSliding,null,0);
         DataBase.instance().mapInfoWingL = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoWingL,null,0);
         DataBase.instance().mapInfoWingR = ParameterUpdate.instance().paraInfoUpdate(DataBase.instance().mapInfoWingR,null,0);
@@ -232,6 +239,7 @@ public class PageMore {
         updateLayout();
     }
 
+
     /* 门翼2参数*/
     private void infoWingRPressed(){
         if(layoutVisible == DataBase.DoorType.WINGR){
@@ -244,7 +252,6 @@ public class PageMore {
 
         updateLayout();
     }
-
     //界面显示更新
     public void updateLayout(){
 
@@ -305,8 +312,14 @@ public class PageMore {
         //菜单展开或收起操作
         if(layoutVisible == NON){
             layout_info_AutoDoor.setVisibility(View.GONE);
-        }else {
+            grid_infoRevolvingDoor.setVisibility(View.GONE);
+        }else if(layoutVisible == REVOLVING){
+            layout_info_AutoDoor.setVisibility(View.GONE);
+            grid_infoRevolvingDoor.setVisibility(View.VISIBLE);
+        }
+        else {
             layout_info_AutoDoor.setVisibility(View.VISIBLE);
+            grid_infoRevolvingDoor.setVisibility(View.GONE);
         }
 
         //更改菜单键箭头显示方向,展开时向下，收起时向上
@@ -336,7 +349,9 @@ public class PageMore {
     }
 
     private void updateInfo(){
-        //            updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoRevolving));
+
+        updateGrideInfoRevolvingDoor(ParameterUpdate.instance().listRDInfoNormal(DataBase.instance().mapInfoRevolving));
+
         updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoSliding));
         updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingL));
         updateGrideInfoAutoDoor(ParameterUpdate.instance().listInfoNormal(DataBase.instance().mapInfoWingR));
@@ -351,6 +366,16 @@ public class PageMore {
                 new String[] { "text", "value", "unit"},
                 new int[] { R.id.parameter_grid_name, R.id.parameter_grid_value, R.id.parameter_grid_unit});
         grid_infoAutoDoor.setAdapter(saImageItems);
+    }
+
+    private void updateGrideInfoRevolvingDoor(List<HashMap<String, Object>> list){
+        //写入grid view
+        SimpleAdapter saImageItems = new SimpleAdapter(activity,
+                list,
+                R.layout.parameter_gridlist,
+                new String[] { "text", "value", "unit"},
+                new int[] { R.id.parameter_grid_name, R.id.parameter_grid_value, R.id.parameter_grid_unit});
+        grid_infoRevolvingDoor.setAdapter(saImageItems);
     }
 
 //=============================================================================
@@ -452,7 +477,6 @@ public class PageMore {
 
     //==============================================================================================
     // 隔间逐个查看
-
 
     private void startTimer(){
         stopTimer();

@@ -45,6 +45,7 @@ public class RS485SendCommand {
     public String CmdQueryInit(String address){
         String command = mContext.getString(R.string.addProgramSwitch) +
                 address + mContext.getString(R.string.cmdSPInit);
+        //字符串“~”对应的十六进制为7E，“\r”对应十六进制为0D。
         return("~" + command + CreatCheckCode(command)+ "\r");
     }
 

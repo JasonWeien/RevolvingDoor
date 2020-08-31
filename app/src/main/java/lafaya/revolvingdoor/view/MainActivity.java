@@ -36,7 +36,9 @@ public class MainActivity extends Activity {
         SystemUIUtils.instance().hideNavKey(MainActivity.this);
         super.onCreate(savedInstanceState);
         super.onWindowFocusChanged(true);
+        //设置一个显示界面，可动态显示切换View
         setContentView(R.layout.activity_main);
+        //返回应用的上下文。
         sContext = getApplicationContext();
 
         // 下端菜单按键布局
@@ -49,7 +51,7 @@ public class MainActivity extends Activity {
         PageMaintenance.instance().PageInit(this,handler);
 
         // 串口通讯初始化
-//        SerialPortThread.instance().open();
+        SerialPortThread.instance().open();
         //参数更新线程初始化
         ParameterUpdate.instance().startThread(handler);//检测是否已
 
@@ -67,6 +69,7 @@ public class MainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 updateView(position);
+                //发送查询命令：7E 21 80 校验字 0D
                 SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdQueryInit(
                         MainActivity.sContext.getString(R.string.addAutoDoor)));
             }

@@ -21,8 +21,12 @@ public class LaunchActivity extends Activity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(LaunchActivity.this, LoginActivity.class);
+//              Intent intent = new Intent(LaunchActivity.this, LoginActivity.class);
+                //取消登录界面，直接转到MainActivity
+                Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                //显式启动新的Activity
                 startActivity(intent);
+                //结束当前Activity
                 LaunchActivity.this.finish();
             }
         },2000);

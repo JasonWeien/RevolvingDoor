@@ -22,6 +22,15 @@
             android:text="旋转门信息"
             android:textSize="24dp"
             android:textColor="@color/colorString"/>
+
+        <lafaya.revolvingdoor.utils.AutoCountListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/grid_infoRevolvingDoor"
+            android:scrollbars="none"
+            android:verticalSpacing="2dp"
+            android:background="@color/ic_launcher_background"
+            />
         <Button
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -65,7 +74,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
             <include layout="@layout/layout_info_autodoor" />
             </LinearLayout>
 

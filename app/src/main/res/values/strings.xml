@@ -49,12 +49,12 @@
     <string name="parRDSpeedMid">低速运行速度</string>
     <string name="parRDSpeedLow">中速运行速度</string>
 
-    <string name="parRDSoftVersion">软件版本号</string>
-    <string name="parRDTotalTrip">总行程位置</string>
+    <string name="infoRDSoftVersion">软件版本号</string>
+    <string name="infoRDTotalTrip">总行程位置</string>
 
-    <string name="parRDStatePort">端口状态</string>
-    <string name="parRDStateRunning">运行状态</string>
-    <string name="parRDStateSystem">系统状态</string>
+    <string name="infoRDStatePort">端口状态</string>
+    <string name="infoRDStateRunning">运行状态</string>
+    <string name="infoRDStateSystem">系统状态</string>
 
 
     <!--  平滑自动门参数名称 -->
@@ -134,6 +134,8 @@
     <string name="infoPCLastTenErrorCode">最近10次报警代码</string>
     <string name="infoSPLastRestartMsg">最近10次系统复位原因</string>
     <string name="infoSPFatalErrorMsg">严重错误信息</string>
+
+
 
 
 
