@@ -98,12 +98,17 @@ public class RS485Protocol {
         //短命令字
 
         //长命令字 8Axx、8Bxx、A0xx
+
+        //接收到命令字为：8A
         if(RXcommand.substring(2,4).equals(mContext.getString(R.string.cmdSPSoftVersion).substring(0,2))){
             CmdReceiveSP(RXcommand);
-
+        //接收到命令字为：8B
         }else if(RXcommand.substring(2,4).equals("8B")){
+           // SerialPortThread.instance().sendMsg("010203");
+            //indexOf:从指定索引开始
             CmdReceiveRD(RXcommand.substring(RXcommand.indexOf("8B")));
-        }else {//短命令字
+        }else {
+            //短命令字
             CmdReceiveOther(RXcommand);
         }
     }
@@ -325,14 +330,61 @@ public class RS485Protocol {
 
     //
     private void CmdReceiveRD(String RXcommand){
+        //参数字：8B
         String cmdTemp = RXcommand.substring(0,2);
 //        只读信息
         if(cmdTemp.equals(mContext.getString(R.string.cmdRDSoftVersion).substring(2,4))){
+
             //软件版本号，32bit
             if(RXcommand.length() >= 10) {
                 DataBase.instance().mapInfoRevolving = ParameterUpdate.instance().paraRDInfoUpdate(DataBase.instance().mapInfoRevolving,
                         mContext.getString(R.string.cmdRDSoftVersion), RXcommand.substring(2, 10));
             }
+        }
+        //通过接收到的参数字判断运行模式，并显示更新。命令字：8B 01 XX 校验，
+        if(RXcommand.substring(0,4).equals((mContext.getString(R.string.cmdRDMode).substring(0,4)))){
+            switch (RXcommand.substring(4,6)){
+                case "00":
+                    //保留。
+                    break;
+                case "01":
+                    //显示怠速模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeNormal);
+                    break;
+                case "02":
+                    //显示冬季模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeWinter);
+                   // SerialPortThread.instance().sendMsg("010203");
+                    break;
+                case "03":
+                    //显示夏季模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeSummer);
+                    break;
+                case "04":
+                    //显示平滑自动模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeSlidingAuto);
+                    break;
+                case "05":
+                    //显示平滑单向模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeSlidingExit);
+                    break;
+                case "06":
+                    //显示平滑常开模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeSlidingOpen);
+                    break;
+                case "07":
+                    //显示夜间锁门模式
+                    DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeLock);
+                    break;
+              //  case "08":
+                    //显示手动模式
+              //      DataBase.instance().mRunningMode = MainActivity.sContext.getString(R.string.RDModeManual);
+              //      break;
+                default:
+                    break;
+
+            }
+
         }
 
 

@@ -195,11 +195,18 @@ public class PageHome {
     }
 
     //显示刷新
+    /*
+    * 当运行模式或错误代码发生改变时，更新主页显示内容。
+    * 参数：tempRunningMode,
+    * 参数：mRunningMode,
+    * 标示位：isInterrupted() = 1 ,表示线程中断。
+    * */
     private class PageHomeThread extends Thread{
         @Override
         public void run(){
             while (!isInterrupted())//非阻塞过程中通过判断中断标志来退出
                 if((!tempRunningMode.equals(DataBase.instance().mRunningMode)) || (!tempErrorCode.equals(DataBase.instance().mErrorCode))) {
+
                     //运行模式更新
                     tempRunningMode = DataBase.instance().mRunningMode;
                     //报警代码更新

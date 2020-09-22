@@ -40,13 +40,13 @@ public class PageMode {
     public boolean modeChanging = false;
 
     //运行模式 图标
-    private int[] mode_list_on = {R.drawable.ic_mode_normal_on, R.drawable.ic_mode_summer_on, R.drawable.ic_mode_winter_on,
+    private int[] mode_list_on = {R.drawable.ic_mode_normal_on, R.drawable.ic_mode_winter_on, R.drawable.ic_mode_summer_on,
             R.drawable.ic_mode_slidingauto_on, R.drawable.ic_mode_slidingexit_on, R.drawable.ic_mode_slidingopen_on,
             R.drawable.ic_mode_lock_on,R.drawable.ic_mode_manual_on};
     //运行模式 名称
     private  String[] mode_name = {MainActivity.sContext.getString(R.string.RDModeNormalName),
-            MainActivity.sContext.getString(R.string.RDModeSummerName),
             MainActivity.sContext.getString(R.string.RDModeWinterName),
+            MainActivity.sContext.getString(R.string.RDModeSummerName),
             MainActivity.sContext.getString(R.string.RDModeSlidingAutoName),
             MainActivity.sContext.getString(R.string.RDModeSlidingExitName),
             MainActivity.sContext.getString(R.string.RDModeSlidingOpenName),
@@ -125,7 +125,7 @@ public class PageMode {
                 if(!modeChanging) {
                     //发送模式修改命令：
                     SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdRevolvingDoorMode(
-                            MainActivity.sContext.getString(R.string.addAutoDoor), mSelectedMode));
+                            MainActivity.sContext.getString(R.string.addRevolvingDoor), mSelectedMode));
                     //=============================
                     //等待修改完成，开始修改计时。
                     modeChanging = true;
@@ -175,10 +175,16 @@ public class PageMode {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                if(modeChanging){
-                    //模式修改失败。
-                    logShow("模式修改失败！");
+                if(!mSelectedMode.equals(DataBase.instance().mRunningMode)){
+                    logShow("模式修改失败");
                 }
+
+ //               if(modeChanging){
+ //                   //模式修改失败。
+ //                   logShow("模式修改失败！");
+ //               }
+                else
+                    logShow("模式修改成功");
             }
         },1000); // 延时 2秒
     }
@@ -199,7 +205,7 @@ public class PageMode {
 
         //未被选择时的运行模式；
 
-        int[] mode_list = {R.drawable.ic_mode_normal_off, R.drawable.ic_mode_summer_off, R.drawable.ic_mode_winter_off,
+        int[] mode_list = {R.drawable.ic_mode_normal_off, R.drawable.ic_mode_winter_off, R.drawable.ic_mode_summer_off,
                 R.drawable.ic_mode_slidingauto_off, R.drawable.ic_mode_slidingexit_off, R.drawable.ic_mode_slidingopen_off,
                 R.drawable.ic_mode_lock_off, R.drawable.ic_mode_manual_off};
 

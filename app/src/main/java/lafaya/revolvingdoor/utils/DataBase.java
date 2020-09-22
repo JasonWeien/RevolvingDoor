@@ -10,9 +10,7 @@ public class DataBase {
 
     public String mErrorCode = MainActivity.sContext.getString(R.string.RDErrorCode00);
 //    public String mErrorCodeList = MainActivity.sContext.getString(R.string.RDModeNormal);
-
     public String mRunningMode = MainActivity.sContext.getString(R.string.RDModeNormal);
-
 
     //参数值
     //旋转门专用参数：距离、驱动、其它

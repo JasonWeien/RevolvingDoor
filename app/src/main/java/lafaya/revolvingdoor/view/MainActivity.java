@@ -68,6 +68,7 @@ public class MainActivity extends Activity {
         grid_menu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //position是当前item在listview中适配器里的位置。
                 updateView(position);
                 //发送查询命令：7E 21 80 校验字 0D
                 SerialPortThread.instance().sendMsg(RS485SendCommand.instance().CmdQueryInit(
@@ -86,22 +87,28 @@ public class MainActivity extends Activity {
 
     //页面下部导航图标初始化
     private void updateMenuGride(Activity activity, int position){
+        //定义数据
         List<HashMap<String, Object>> list = new ArrayList<>();
         int[] menu_list = {R.drawable.ic_home, R.drawable.ic_mode, R.drawable.ic_par_tune, R.drawable.ic_maintenance, R.drawable.ic_more};
         int[] menu_list_on = {R.drawable.ic_home_on, R.drawable.ic_mode_on, R.drawable.ic_tune_on, R.drawable.ic_maintenance_on, R.drawable.ic_more_on};
         String[] menu_name = {"主页", "模式", "参数", "维护", "更多"};
 
         menu_list[position] = menu_list_on[position];
-
+        //写入数据
         for(int i=0;i<menu_list.length;i++){
             list.add(gridUtils.getGridViewData(menu_list[i], menu_name[i]));
         }
         //写入grid view
         SimpleAdapter saImageItems = new SimpleAdapter(activity,
+                //数据源
                 list,
+                //每一个item的布局文件
                 R.layout.menu_gridlist,
+                //与list的key值一一对应。
                 new String[] { "image", "text"},
+                //布局控件ID
                 new int[] { R.id.image_menu_list, R.id.image_menu_name});
+        //适配后显示在GridView上。
         grid_menu.setAdapter(saImageItems);
 
     }
@@ -114,9 +121,10 @@ public class MainActivity extends Activity {
         //更新各页面的显示
         boolean[] menu_view = {false,false,false,false,false};
         menu_view[position] = true;
-        PageHome.instance().showPageHome(menu_view[0]);
-        PageMode.instance().showPageMode(menu_view[1]);
-        PageParameter.instance().showPageParameter(menu_view[2]);
+        //界面显示选择，menu_view = true选择显示， menu_view = false为选择隐藏。
+        PageHome.instance().showPageHome(menu_view[0]);     //主页：发送旋转门运行模式查询指令。
+        PageMode.instance().showPageMode(menu_view[1]);     //模式：旋转门模式界面转换。
+        PageParameter.instance().showPageParameter(menu_view[2]);       //
         PageMaintenance.instance().showPageMaintenance(menu_view[3]);
         PageMore.instance().showPageMore(menu_view[4]);
     }
@@ -129,10 +137,12 @@ public class MainActivity extends Activity {
 //===================================================================
 
     @SuppressLint("HandlerLeak")
+    //子线程通知主线程更新UI
     public Handler handler = new Handler(){
 
         @Override
         public void handleMessage(Message msg){
+            //获取传递过来的数据。
             Bundle bd = msg.getData();
             switch (msg.what){
                 case 0:// 异常信息显示

@@ -135,6 +135,7 @@ public class SerialPortThread{
                             //数据待处理标志
                             isReceiveMsg = true;
                         }
+//                        sendMsg(mReBuffer);    //测试用，接收到的数据再原封不动发出去。
 //                        sendMsg(ByteUtil.bytesToAscii(received, size).getBytes());
 
                     }
