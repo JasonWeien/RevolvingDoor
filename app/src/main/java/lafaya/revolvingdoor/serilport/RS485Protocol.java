@@ -176,6 +176,8 @@ public class RS485Protocol {
             //8A0B 爬行、末段超速不减PWM门槛
             rxParameter(addr,mContext.getString(R.string.parSDPWMCrawlSpeedReducePWMThreshold), value);
         }
+
+
         //8A0C 。。。
         else if(cmdTemp.equals(mContext.getString(R.string.cmdSPSpeedBreakPWMThreshold))) {
             //8A0D 刹车段低速不增PWM门槛
@@ -190,6 +192,8 @@ public class RS485Protocol {
             //8A10 爬行速度
             rxParameter(addr,mContext.getString(R.string.parSDSpeedCrawl), value);
         }
+
+
         //8A11 双机联动
         else if(cmdTemp.equals(mContext.getString(R.string.cmdSPSpeedDropRate))) {
             //8A12 速度跌落比
